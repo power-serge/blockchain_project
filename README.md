@@ -1,12 +1,19 @@
-## Welcome to GitHub Pages
+# Blockchain Project for ECSU Senior Research
 
-You can use the [editor on GitHub](https://github.com/power-serge/blockchain_project/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Contributors:
+Jacob Peabody <br>
+Brian Gonzales <br>
+Sergio Yraita, Jr <br>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Sections
+This project will focus in three cornerstone aspects of blockchain technology. <br>
+Using Bitcoin as an example, the authors will discuss Merkle Trees, Consensus, and Encryption.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# Merkle Trees
+A Merkle tree is a data structure used in blockchain technology. <br>
+The tree is constructed by recursively hashing pairs of leafs until reaching the top. <br>
+The final hash is called the Merkle Root, and is a representation of all transactions included in a Bitcoin block. <br>
+This project will include source code for obtaining data from www.blockchain.info using GET requests in python and recreating the Merkle Roof by recursively hashing the transactions in a block.
 
 ```markdown
 Syntax highlighted code block
