@@ -9,7 +9,7 @@ Sergio Yraita, Jr <br>
 This project will focus in three cornerstone aspects of blockchain technology. <br>
 Using Bitcoin as an example, the authors will discuss Merkle Trees, Consensus, and Encryption.
 
-# Merkle Trees
+### Merkle Trees
 A Merkle tree is a data structure used in blockchain technology. <br>
 The tree is constructed by recursively hashing pairs of leafs until reaching the top. <br>
 The final hash is called the Merkle Root, and is a representation of all transactions included in a Bitcoin block. <br>
