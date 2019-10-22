@@ -3,7 +3,7 @@
 ## Contributors:
 Jacob Peabody <br>
 Brian Gonzales <br>
-Sergio Yraita, Jr <br>
+<a href="https://github.com/power-serge/"> Sergio Yraita, Jr</a><br>
 
 ## Sections
 This project will focus in three cornerstone aspects of blockchain technology. <br>
