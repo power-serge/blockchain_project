@@ -24,3 +24,5 @@ Consensus algorithms are crucial for maintaining the integrity and security of a
 
 ### Encryption
 Encryption is the process of encoding a message or information that only authorized parties can access, not allowing unauthorized personal to access. Bitcoin utilizes an encpryption based on the Elliptic Curve Digital Signature Algorithm(ECDSA), along with the elliptic curve secp256k1. bitcoin also utilizes The Secure Hash Algorithm(SHA) to hash transactions securely. There are a few variation of SHA consisting of SHA256 and SHA1 used in bitcoin. This project with analyze and compare different encryption methods that are used in bitcoins with other encpryption methods outside of bitcoin.
+<br>
+Teting...
