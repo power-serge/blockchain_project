@@ -2,7 +2,7 @@
 
 ## Contributors:
 Jacob Peabody <br>
-Brian Gonzales <br>
+Brian Gonzalez <br>
 <a href="https://github.com/power-serge/"> Sergio Yraita, Jr</a><br>
 
 ## Sections
