@@ -1,8 +1,8 @@
 # Blockchain Project for ECSU Senior Research
 
 ## Contributors:
-Jacob Peabody <br>
-Brian Gonzalez <br>
+<a href="https://github.com/jpeabody95"> Jacob Peabody</a><br>
+<a href="https://github.com/gonzyai"> Brian Gonzalez</a><br>
 <a href="https://github.com/power-serge/"> Sergio Yraita, Jr</a><br>
 
 ## Sections
@@ -23,9 +23,9 @@ This is where consensus algorithms come into play. They assure that the protocol
 Consensus algorithms are crucial for maintaining the integrity and security of a cryptocurrency network. They provide a means of distributed nodes reaching consensus on which version of the blockchain is the real one. Agreeing upon the current blockchain state is essential for a digital economic system to work properly
 
 ### Encryption
-Encryption is the process of encoding a message or information that only authorized parties can access, not allowing unauthorized personal to access. Bitcoin utilizes an encpryption based on the Elliptic Curve Digital Signature Algorithm(ECDSA), along with the elliptic curve secp256k1. bitcoin also utilizes The Secure Hash Algorithm(SHA) to hash transactions securely. There are a few variation of SHA consisting of SHA256 and SHA1 used in bitcoin. This project with analyze and compare different encryption methods that are used in bitcoins with other encpryption methods outside of bitcoin.
+Encryption is the process of encoding a message or information that only authorized parties can access, not allowing unauthorized personal to access. <br>
+Bitcoin utilizes an encpryption based on the EllipticCurve Digital Signature Algorithm(ECDSA), along with the elliptic curve secp256k1. <br>
+Bitcoin also utilizes The Secure Hash Algorithm(SHA) to hash transactions securely.<br>
+There are a few variation of SHA consisting of SHA256 and SHA1 used in bitcoin.<br>
+This project with analyze and compare different encryption methods that are used in bitcoins with other encpryption methods outside of bitcoin.<br>
 
-some other stuff here
-
-<br>
-Teting...
