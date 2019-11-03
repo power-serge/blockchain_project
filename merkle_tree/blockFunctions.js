@@ -14,9 +14,11 @@ fetch(`https://blockchain.info/rawblock/${block}?cors=true`)
 	.then( ([root, txs, height]) => {
 		document.getElementById("demo1").innerHTML = height;
 		document.getElementById("demo2").innerHTML = root;
-		
+		var txsHtml = document.getElementById("block_size");
+		txsHtml.innerHTML += " " + txs.length;
+		//document.getElementById("block_size").innerHTML = txs.length;
 		var txt = "";
-		for (x of txs)
+		for (var x of txs)
 		{
 			txt += x + "<br>";
 		}
