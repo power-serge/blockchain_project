@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+	Created using JS Bin
+	http://jsbin.com
+	
+	Copyright (c) 2019 by power-serge (http://jsbin.com/licemaz/2/edit)
+	
+	Released under the MIT license: http://jsbin.mit-license.org
+	-->
+<meta name="robots" content="noindex">
+<html>
+	<head>
+		<meta name="description" content="[Single Block Transactions Proof]">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Building Trees</title>
+		<script src="blockFunctions.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js" 
+			integrity="sha256-cVdRFpfbdE04SloqhkavI/PJBWCr+TuyQP3WkLKaiYo=" 
+			crossorigin="anonymous"></script>
+	</head>
+	<style>
+		body, input{
+		font-family: Consolas, courier, monospace;
+		font-size: 20px;
+		}
+	</style>
+	<body>
+		<h1>Merkle Trees</h1>
+		<button type="button" onclick=fetchLatestBlock()>Get The Latest block</button>
+		<p id="demo"></p>
+		<form id="blockForm" action="/action_page.php">
+			Please Enter Block Hash <br>
+			<input id="block" type="text" name="blockNumber" size="64"><br>
+		</form>
+		<br>
+		<button type="button" onclick=fetchBlock()> Get The Root and Transactions </button>
+		<h2>The block number is:</h2>
+		<p id="demo1">height here</p>
+		<h2>The Merkle Root is: </h2>
+		<p id="demo2">root here</p>
+		<h2>The Transactions for this block are:</h2>
+		<p id="demo3">transactions here</p>		
+	</body>
+</html>
