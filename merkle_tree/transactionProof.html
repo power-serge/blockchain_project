@@ -26,7 +26,7 @@
 		}
 		
 		.content {
-			max-width: 500px;
+			max-width: 600px;
 			margin: auto;
 		}
 	</style>
@@ -34,7 +34,8 @@
 		<body>
 			<h1>Merkle Trees</h1>
 			<button type="button" onclick=fetchLatestBlock()>Get The Latest block</button>
-			<p id="demo"></p>
+			<p id="demo">Latest Block Here</p>
+			<br>
 			<form id="blockForm" action="/action_page.php">
 				Please Enter Block Hash <br>
 				<input id="block" type="text" name="blockNumber" size="64"><br>
@@ -45,8 +46,9 @@
 			<p id="demo1">height here</p>
 			<h2>The Merkle Root is: </h2>
 			<p id="demo2">root here</p>
-			<h2>The Transactions for this block are:</h2>
+			<h2 id="block_size"># of Transactions is: </h2>
+			<h3>The Transactions for this block are:</h3>
 			<p id="demo3">transactions here</p>		
-		</body>	
+		</body>
 	</div>
 </html>
