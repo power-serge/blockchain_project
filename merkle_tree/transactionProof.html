@@ -10,7 +10,7 @@
 <meta name="robots" content="noindex">
 <html>
 	<head>
-		<meta name="description" content="[Single Block Transactions Proof]">
+		<meta name="description" content="Merkle Trees">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Building Trees</title>
@@ -36,16 +36,25 @@
 			<button type="button" onclick=fetchLatestBlock()>Get The Latest block</button>
 			<p id="demo">Latest Block Here</p>
 			<br>
+			
 			<form id="blockForm" action="/action_page.php">
 				Please Enter Block Hash <br>
-				<input id="block" type="text" name="blockNumber" size="64"><br>
+				<input id="block" onkeypress=fetchOnEnter(this.id) type="text" name="blockNumber" size="64"><br>
+				
+				<br>Please Enter Block Number (Height) 
+				<input id="height" type="text" name="blockHeight" size="6"><br>
 			</form>
+
 			<br>
-			<button type="button" onclick=fetchBlock()> Get The Root and Transactions </button>
+			
+			<button id="TxsBtn" type="button" onclick=fetchBlockByHeight()> Get The Root and Transactions </button>
+			
 			<h2>The block number is:</h2>
 			<p id="demo1">height here</p>
+			
 			<h2>The Merkle Root is: </h2>
 			<p id="demo2">root here</p>
+			
 			<h2 id="block_size"># of Transactions is: </h2>
 			<h3>The Transactions for this block are:</h3>
 			<p id="demo3">transactions here</p>		
