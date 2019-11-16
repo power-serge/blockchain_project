@@ -20,12 +20,15 @@ def hash2(a, b):
     h = hashlib.sha256(hashlib.sha256(a1+b1).digest()).digest()
     return codecs.encode(h[::-1], "hex")
 
-url1 = 'https://blockchain.info/rawblock/000000000000000082ccf8f1557c5d40b21edabb18d2d691cfbf87118bac7254'
-url  = 'https://blockchain.info/rawblock/0000000000000000000f58006e01fc78f09123e9e3f74449c1cc81d335f41a12'
+base = 'https://blockchain.info/rawblock/'
 
-block_request = requests.get(url)
+block_hash  = '0000000000000000000f58006e01fc78f09123e9e3f74449c1cc81d335f41a12'
+
+block_request = requests.get(base + block_hash)
 block_data = json.loads(block_request.text)
+
 size = len(block_data['tx'])
+
 txs = []
 for x in range(size):
     txs.append(block_data['tx'][x]['hash'])
