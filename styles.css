@@ -2,6 +2,32 @@
   box-sizing: border-box;
 }
 
+/* General Hyperlink Styles */
+/* Adding Icons */
+a[href*="http"] {
+  background: url('https://mdn.mozillademos.org/files/12982/external-link-52.png') no-repeat 100% 0;
+  background-size: 15px;
+  padding-right: 20px;
+}
+
+/* unvisited link */
+a:link {
+  background-color: none;
+  text-decoration: none;
+  color: #1abc9c;
+}
+
+/* visited link */
+a:visited {
+  color: grey;
+}
+
+/* mouse over link */
+a:hover {
+  background-color: #666;
+  text-decoration: underline;
+}
+
 /* Style the body */
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -10,7 +36,7 @@ body {
 
 /* Header/logo Title */
 .header {
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   background: #1abc9c;
   color: white;
@@ -49,12 +75,6 @@ body {
   text-decoration: none;
 }
 
-
-/* Right-aligned link */
-.navbar a.right {
-  float: right;
-}
-
 /* Change color on hover */
 .navbar a:hover {
   background-color: #ddd;
@@ -78,24 +98,26 @@ body {
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
 .side {
-  -ms-flex: 30%; /* IE10 */
-  flex: 30%;
+  -ms-flex: 35%; /* IE10 */
+  flex: 35%;
   background-color: #f1f1f1;
   padding: 20px;
 }
 
 /* Main column */
 .main {   
-  -ms-flex: 70%; /* IE10 */
-  flex: 70%;
+  -ms-flex: 65%; /* IE10 */
+  flex: 65%;
   background-color: white;
   padding: 20px;
 }
 
-/* Fake image, just for this example */
-.fakeimg {
+/* img styles */
+.home_img {
   background-color: #aaa;
   width: 100%;
+  height: auto;
+  max-height:30%;
   padding: 2px;
 }
 
@@ -120,5 +142,11 @@ body {
   .navbar a {
     float: none;
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  img {   
+    height: 500px;
   }
 }
