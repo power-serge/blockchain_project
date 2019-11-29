@@ -3,16 +3,11 @@
 }
 
 .icon-arrow-up {
-    background-image: url('https://developer.mozilla.org/static/arrows/arrow-up.7bcf357a852e.svg');
-    background-size: 16px;
-    width: 16px;
-    height: 18px;
-    vertical-align: sub;
-}
-
-i[class^="icon-"] {
-    cursor: default;
     display: inline-block;
+	background: url('https://developer.mozilla.org/static/arrows/arrow-up.7bcf357a852e.svg') no-repeat 100% 0;
+	background-size: 18px;
+    width: 18px;
+    height: 18px;
 }
 
 /* General Hyperlink Styles */
@@ -138,7 +133,7 @@ h1 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 88%;
 }
 
 /* img styles */
