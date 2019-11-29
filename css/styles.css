@@ -2,6 +2,19 @@
   box-sizing: border-box;
 }
 
+.icon-arrow-up {
+    background-image: url('https://developer.mozilla.org/static/arrows/arrow-up.7bcf357a852e.svg');
+    background-size: 16px;
+    width: 16px;
+    height: 18px;
+    vertical-align: sub;
+}
+
+i[class^="icon-"] {
+    cursor: default;
+    display: inline-block;
+}
+
 /* General Hyperlink Styles */
 /* Adding Icons */
 a[href*="http"] {
@@ -34,6 +47,11 @@ body {
   margin: 0;
 }
 
+h1 {
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+}
+
 /* Header/logo Title */
 .header {
   padding: 10px;
@@ -44,11 +62,11 @@ body {
 
 /* Increase the font size of the heading */
 .header h1 {
-  font-size: 100px;
+  font-size: 85px;
 }
 
 .header p {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 /* Sticky navbar - toggles between relative and fixed, 
@@ -128,6 +146,8 @@ body {
   background: #ddd;
 }
 
+
+
 /* Responsive layout - when the screen is less than 700px wide, make the two 
    columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
@@ -142,11 +162,5 @@ body {
   .navbar a {
     float: none;
     width: 100%;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  img {   
-    height: 500px;
   }
 }
