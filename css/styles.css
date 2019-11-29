@@ -130,6 +130,17 @@ h1 {
   padding: 20px;
 }
 
+#large_pic{
+  background-color: #aaa;
+  height: auto;
+  padding: 2px;
+  align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
 /* img styles */
 .home_img {
   background-color: #aaa;
@@ -161,6 +172,10 @@ h1 {
 
   .header p {
     font-size: 25px;
+  }
+
+  #large_pic{
+    width: 100%;
   }  
 }
 
@@ -179,4 +194,8 @@ h1 {
   .header p {
     font-size: 25px;
   }
+  
+  #large_pic{
+    width: 100%;
+  }  
 }
