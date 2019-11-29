@@ -116,16 +116,16 @@ h1 {
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
 .side {
-  -ms-flex: 35%; /* IE10 */
-  flex: 35%;
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
   background-color: #f1f1f1;
   padding: 20px;
 }
 
 /* Main column */
 .main {   
-  -ms-flex: 65%; /* IE10 */
-  flex: 65%;
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
   background-color: white;
   padding: 20px;
 }
@@ -154,6 +154,14 @@ h1 {
   .row {   
     flex-direction: column;
   }
+
+  .header h1 {
+    font-size: 65px;
+  }
+
+  .header p {
+    font-size: 25px;
+  }  
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation 
@@ -162,5 +170,13 @@ h1 {
   .navbar a {
     float: none;
     width: 100%;
+  }
+  
+  .header h1 {
+    font-size: 45px;
+  }
+
+  .header p {
+    font-size: 25px;
   }
 }
