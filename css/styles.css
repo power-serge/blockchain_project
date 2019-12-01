@@ -12,7 +12,7 @@
 
 /* General Hyperlink Styles */
 /* Adding Icons */
-a[href*="http"] {
+a[href*="http"], a.learn {
   background: url('https://mdn.mozillademos.org/files/12982/external-link-52.png') no-repeat 100% 0;
   background-size: 15px;
   padding-right: 20px;
@@ -20,7 +20,6 @@ a[href*="http"] {
 
 /* unvisited link */
 a:link {
-  background-color: none;
   text-decoration: none;
   color: #1abc9c;
 }

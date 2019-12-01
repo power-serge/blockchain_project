@@ -17,13 +17,13 @@ def calculate_root(hashList):
 def hashPair(a, b):
     # Reverse inputs before and after hashing due to big-endian/little-endian processing
     #python 2 code: a1 = a.decode('hex')[::-1] 
-    a1 = codecs.decode(a, "hex")[::-1]
-
+    a1 = codecs.decode(a, "hex")[::-1]    
+    
     #python 2 code: b1 = b.decode('hex')[::-1]
     b1 = codecs.decode(b, "hex")[::-1]
-
+    
     #double hash the resulting string a + b and digest it 
-    h = hashlib.sha256(hashlib.sha256(a1+b1).digest()).digest()
+    h = hashlib.sha256(hashlib.sha256(a1+b1).digest()).digest()    
 
     #python 2 code: return h[::-1].encode('hex')
     return codecs.encode(h[::-1], "hex")
@@ -75,6 +75,22 @@ def print_txs(txs):
 
 def root_ok(given_root, calc_root):
     return given_root == calc_root
+
+# dividing the hashing function to be able to call it on a single item
+def hexDecode(a_decode):    
+    return codecs.decode(a_decode, "hex")[::-1]
+
+def hexHash(a_hash):
+    return hashlib.sha256(a_hash).digest()
+
+def hexEncode(a):
+    return codecs.encode(a[::-1], "hex")
+
+# single hash one item
+def hashOne (a):
+    a_decode = codecs.decode(a, "hex")[::-1]
+    a_hash = hashlib.sha256(a_decode).digest()
+    return codecs.encode(a_hash[::-1], "hex")
     
 
         
