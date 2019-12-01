@@ -6,6 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/merkle.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
+			integrity="sha256-cVdRFpfbdE04SloqhkavI/PJBWCr+TuyQP3WkLKaiYo=" 
+			crossorigin="anonymous"></script>
 		<script src="blockFunctions.js"></script>
 	</head>
 	<body>
@@ -26,43 +29,63 @@
 				<h3><a href="#"> Section Two</a></a></h3>
 				<h3><a href="#"> Section Three</a></a></h3>
 			</div>
-			<div class="main merkle_ops">
+			<div class="merkle_ops">
 				<h2>MERKLE TREES</h2>
+				<i>(For a better experience, we recommend looking at this page in a laptop or dekstop)</i><br>
 				<p>
+					Let's begin with a simple concept: One-way <a href="../hashing/hashing.html">hashing</a> functions.
 				</p>
 				<p>
+					A one-way hashing function is a simple mechanism that takes in something as an input and produces a unique
+					hash value for it. The hashing function we will be using is called SHA-256.
 				</p>
-				<div class="merkle_ops">
-					<h3>Basic Bitcoin Block Operations</h3>
-					<p>
-						Here you'll find some block operations to play around with and see how it works.
-					</p>
-					<button type="button" onclick=displayLatestBlock()>Get The Latest block</button>
-					<p id="demo">Latest Block Here</p>
-					<br>
-					<form id="blockForm">
-						Please Enter Block Hash <br>
-						<input id="block" onkeypress=fetchOnEnter(this.id) type="text" name="blockNumber" size="64"><br>
-						<br>Please Enter Block Number (Height) 
-						<input id="height" type="text" name="blockHeight" size="6"><br>
-					</form>
-					<br>
-					<button id="TxsBtn" type="button" onclick=fetchBlockByHash()> Get Block By Hash </button>
-					<button id="TxsBtn" type="button" onclick=fetchBlockByHeight()> Get Block by Height </button>
-					<div class="block_info">
-						<p id="info">The block id (hash) is:</p>
-						<p id="block_id"></p>
-						
-						<p id="info">The block number is: <span id="block_num"></span></p>
-						
-						<p id="info"># of Transactions is: <span id="block_size"></span></p>
-						
-						<p id="info">The Merkle Root is:</p>
-						<p id="block_mrkl"></p>
-						
-						<p id="info">The Transactions IDs (hashes) for this block are:</p>
-						<p id="block_txs"></p>
-					</div>
+				<p>
+					Let's try it. Input any text into the box below and click the "Hash It!" button.
+				</p>
+				<input id="hash_it" type="text">
+				<button onclick="document.getElementById('hash_one').innerHTML = hashOne(document.getElementById('hash_it').value)">Hash It!</button>
+				<p id="hash_one"></p>
+				<p>
+					Now, imagine you have a simple zip archive with 4 files in it. The application is on the web somewhere.
+					You need to download it and make sure that the file downloaded correctly. In other words, you have
+					to verify that the files are not corrupted. How can you do this?
+				</p>
+				<p>
+					One way is using what is known as the checksum. The authors of the zip archive will use a 
+					known hashing function, such as SHA-256, to hash the contents of the archive and will make the resulting hash value public.
+					This way after you download the zip archive, you can use the same hashing function on your own to hash the contents
+					of the archive and compare your result with the one the authors got. If you get the same result, it means that the contents
+					of the archive you downloaded must be the same as the contents of the one that the authors made available.
+				</p>
+				<p>
+					For example: 
+				</p>
+				
+				<h3>Basic Bitcoin Block Operations</h3>
+				<p>
+					Here you'll find some block operations to play around with and see how it works.
+				</p>
+				<button type="button" onclick=displayLatestBlock()>Get The Latest block</button>
+				<p id="demo">Latest Block Here</p>
+				<br>
+				<form id="blockForm">
+					Please Enter Block Hash <br>
+					<input id="block" onkeypress=fetchOnEnter(this.id) type="text" name="blockNumber" size="64"><br>
+					<br>Please Enter Block Number (Height) 
+					<input id="height" onkeypress=fetchOnEnter(this.id) type="text" name="blockHeight" size="6"><br>
+				</form>
+				<br>
+				<button id="TxsBtn" type="button" onclick=fetchBlockByHash()> Get Block By Hash </button>
+				<button id="TxsBtn" type="button" onclick=fetchBlockByHeight()> Get Block by Height </button>
+				<div class="block_info">
+					<p id="info">The block id (hash) is:</p>
+					<p id="block_id"></p>
+					<p id="info">The block number is: <span id="block_num"></span></p>
+					<p id="info"># of Transactions is: <span id="block_size"></span></p>
+					<p id="info">The Merkle Root is:</p>
+					<p id="block_mrkl"></p>
+					<p id="info">The Transactions IDs (hashes) for this block are:</p>
+					<p id="block_txs"></p>
 				</div>
 			</div>
 		</div>

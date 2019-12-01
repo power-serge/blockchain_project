@@ -1,9 +1,16 @@
 /* adding styles for merkle page */
 /* change the font to better display hashes */
+.merkle_ops {
+	max-width: 70%;
+	margin: auto;
+	padding: 25px;
+}
+
 .merkle_ops, .merkle_ops button, .merkle_ops input {
 	font-family: Consolas, courier, monospace;
 	font-size: 20px;
 }
+
 .block_info {
 	padding: 20px;
 }
@@ -19,4 +26,13 @@
 
 .block_info span {
 	font-weight: normal;
+}
+
+#TxsBtn{
+	margin-left: 25px;
+	margin-top: 15px;
+}
+
+#hash_one{
+	color: #0cbb65;
 }
