@@ -25,7 +25,55 @@
 			<p><a href=""> Section Three</a></a></p>
          </div>
          <div class="main">
-			<h2>CONSENSUS</h2>
+         <h2>CONSENSUS</h2>
+            <br>
+            <br>
+
+         
+         <button onclick="myMiners()">Create your mining network</button>       
+         <p id="miners"></p>
+         <p id="miningMessage"></p>
+            <br>
+            <br>
+            <br>
+            <br>
+                      
+         <button onclick="myTransactions()">Pick your transactions</button>
+         <p id="transactions"></p>      
+         <p id="transactionsMessage"></p> 
+                       
+
+		<script>             
+         // Generating Random number for miner
+         function myMiners()  {            
+           document.getElementById("miners").innerHTML = Math.floor((Math.random() * 100) + 20); 
+           document.getElementById("miningMessage").innerHTML = "Congratulations, you did it! Looks like your competing against other miners. Buckle up, you got this!!! <br/> <br/> <br/> Quick! It's a race to add the next block! Pick out your transactions and lets get rolling! "                              
+         }          
+      </script>
+
+      <script>             
+      // Generating Random number for miner
+      function myTransactions()  {            
+        document.getElementById("transactions").innerHTML = Math.floor((Math.random() * 150) + 50); 
+        document.getElementById("transactionsMessage").innerHTML = "Great! We've got our transactions. And you managed to stay well under bitcoin's 1mb data limit, great job! Your a natural. <br/> <br/> <br/> Now let's go grab our last blocks header! We're going to need it. <br/> <br/> <br/> Did I mention we are kind of in a rush? Let's go!!"
+      }
+      </script>
+
+      <script>
+        function hexString() {
+         var result           = '';
+         var characters       = 'ABCDEFabcdef0123456789';         
+         var j = 100;
+        
+         for ( var i = 0; i < 64; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+                  }         
+            return result;      
+               }
+      // document.write(hexString());
+      </script>
+     
+    
             <p>
 			</p>
 			<p>
