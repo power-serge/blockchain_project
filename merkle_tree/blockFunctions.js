@@ -26,6 +26,10 @@ const hashPair = (a, b = a) => {
 };
 
 const hashOne = data => {
+	if (data.length % 2 != 0)
+	{
+		data = "0"+data;
+	}
 	const bytes = toBytes(`${data}`).reverse();
 	const hash = sha256.array(bytes);
 	return toHex(hash.reverse());

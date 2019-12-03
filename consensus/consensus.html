@@ -5,6 +5,18 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="../css/styles.css">
+      <!--------------------------------------- Added for hashing function ------------------------------------------>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
+      integrity="sha256-cVdRFpfbdE04SloqhkavI/PJBWCr+TuyQP3WkLKaiYo=" 
+      crossorigin="anonymous"></script>
+      <script src="../merkle_tree/blockFunctions.js"></script>
+      <div class="navbar">
+			<a href="../index.html">Home</a>
+			<a href="#" class="active">Merkle Trees</a>
+			<a href="../hashing/hashing.html">Hashing</a>
+			<a href="../consensus/consensus.html">Consensus</a>
+		</div>
+       <!---------------------------------- End of hashing function script ------------------------------------------->
    </head>
    <body>
 
@@ -45,7 +57,7 @@
                        dialogbox.style.left = (winW/2) - (550 * .5)+"px";
                        dialogbox.style.top = "100px";
                        dialogbox.style.display = "block";
-                       document.getElementById('dialogboxhead').innerHTML = " Listen up " + name + ". Important information is in your presence!";
+                       document.getElementById('dialogboxhead').innerHTML = " Listen up " + name + ". Important information is in you\'re presence!";
                        document.getElementById('dialogboxbody').innerHTML = dialog;
                        document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()">OK</button>';
                    }
@@ -104,27 +116,27 @@
                <br>
                <br>
                                        
-         <!-- Example of html button without Javascript functions:      <button onclick="alert('Create your mining network')">Initiate Default Alert</button> -->                       
+         <!-- Example of html button without Javascript functions:      <button onclick="alert('Create you\'re mining network')">Initiate Default Alert</button> -->                       
          <button onclick="Alert.render('So, we know that Bitcoin is decentralized. This means that no single authority can make decisions for all parties. Instead the network is in control. This means that everytime a transaction is made, a copy is sent to every node in the network. These nodes represent an individual in the bitcoin network. Now, the mining network is special! The mining nodes are unique because they represent individuals who are actually mining bitcoin. miners are in a sense a subset of all nodes who make up the network. Lets use the good ol class room as an analogy to better explain. The class room represents the network. The students are nodes who represent users spending and exchanging bitcoin. The teacher represents the miner.')">Mining Network?</button> 
                <br> 
                <br>
                <br>
                <br>
 
-         <button onclick="myMiners()">Create your mining network</button>       
+         <button onclick="myMiners()">Create you\'re mining network</button>       
          <p id="miners"></p>
          <p id="miningMessage"></p>
             <br>
             <br>
              
             
-         <button onclick="Alert.render('Since bitcoin only allows a block to be added on average every 10 minutes, not all transactions can be verified instantly. How it works is, when a transaction is made it goes into a pool. Once a block is added, miners then go to the pool and pick out the next set of transactions they would like to add to a block. Its important to note that bitcoin has a data cap on its blocks, therefore a miner cannot select thousands of transactions. So, this leads miners to being very strategic in selecting their blocks. One good way to make sure your block is verified quickly is to leave a nice juicy tip for your miner. This certaintly gives some incentive to the miner. This is known as the miners tip. ')">Transactions?</button>        
+         <button onclick="Alert.render('Since bitcoin only allows a block to be added on average every 10 minutes, not all transactions can be verified instantly. How it works is, when a transaction is made it goes into a pool. Once a block is added, miners then go to the pool and pick out the next set of transactions they would like to add to a block. Its important to note that bitcoin has a data cap on its blocks, therefore a miner cannot select thousands of transactions. So, this leads miners to being very strategic in selecting their blocks. One good way to make sure you\'re block is verified quickly is to leave a nice juicy tip for you\'re miner. This certaintly gives some incentive to the miner. This is known as the miners tip. ')">Transactions?</button>        
             <br>
             <br>
             <br>
             <br>
 
-         <button onclick="myTransactions()">Pick your transactions</button>
+         <button onclick="myTransactions()">Pick you\'re transactions</button>
          <p id="transactions"></p>      
          <p id="transactionsMessage"></p> 
             <br>
@@ -132,45 +144,51 @@
            
                 
 
-         <button onclick="Alert.render('A block header is an 80-byte long string. Its composition is as follows: A 4-byte long Bitcoin version number, 32-byte previous block hash, 32-byte long Merkle root, 4-byte long timestamp of the block, 4-byte long difficulty target for the block, and the 4-byte long nonce used by miners. The block header is the output of hasing all of the above. It is typically displayed as a 64 bit hexadecimal number with a bunch of zeros in front. So in essence, the block header contains the entire history of bitcoin')">Block Header?</button>
+         <button onclick="Alert.render('A block header is an 80-byte long string. Its composition is as follows: A 4-byte long Bitcoin version number, 32-byte previous block hash, 32-byte long Merkle root, 4-byte long timestamp of the block, 4-byte long difficulty target for the block, and the 4-byte long nonce used by miners. The blocks hash, commenly referred to as the block id is the result of hashing the block header. The block hash is typically displayed as a 64 bit hexadecimal number leading with a bunch. So in essence, the block hash contains the entire history of bitcoin')">Block Hash?</button>
             <br>
             <br>
             <br>
             <br>
-         <button onclick="blockHeader()">Grab last block's header</button>
+         <button onclick="blockHeader()">Grab last block's hash</button>
          <p id="blockheaders"></p>      
          <p id="blockheadersMessage"></p> 
 
+         <button onclick="Alert.render('So, you\'re probably asking yourself, what is a hash? A hash, commonly referred to as hashing, is a mathematical function that takes an input value and turns it into a compressed numerical value. This value is known as the hash. Imagine giving a hash function the entire script of a movie. The hash function will take this text of a certain legnth/value and output a hash of the script that is now represented as a compressed numerical value. The sha256 hashing function for instance provides an output in a 64 bit hexadecimal format.')">Sha256-Hash?</button>
+      <!------------------------------------------------------------------- HASH -------------------------------------------------------->
+         <input id="hash_it" type="text">
+				<button onclick="document.getElementById('hash_one').innerHTML = hashOne(document.getElementById('hash_it').value)">Hash It!</button>
+				<p id="hash_one"></p>
+				
+      <!---------------------------------------------------------------- Miner Name ----------------------------------------------------->
          <script>
                function minerName(){
-               name = window.prompt("Welcome to the Bitcoin mining club aka The Consensus Crew (totally just made that up). Err.. Um... Don't take offense, this is totally embarassing but, what was your name again?");              
+               name = window.prompt("Welcome to the Bitcoin mining club aka The Consensus Crew (totally just made that up). Err.. Um... Don't take offense, this is totally embarassing but, what was you\'re name again?");              
                alert("Ahhh, miner " +  name  + ". Has a cool ring to it. You look a bit weak. They sure don't make em like they used to. Good thing we rely on electricity and computing power to mine our blocks! Lets get started " + name);
-               document.getElementById("minerGoodbye").innerHTML = name + ", your first objective is to go size up the competition! See who your up against. Create your  mining network to find out." ;
+               document.getElementById("minerGoodbye").innerHTML = name + ", you\'re first objective is to go size up the competition! See who you\'re up against. Create you\'re  mining network to find out." ;
                }
          </script>
 
-         
           <p id="name"></p>
 
 		<script>             
          // Generating Random number for miner
          function myMiners()  {            
            document.getElementById("miners").innerHTML = Math.floor((Math.random() * 100) + 20); 
-           document.getElementById("miningMessage").innerHTML = "Congratulations, " + name + " you did it! Looks like your competing against other miners. Buckle up, you got this " + name + "!!! <br/> <br/> <br/> Quick! It's a race to add the next block! Pick out your transactions and lets get rolling!"                              
+           document.getElementById("miningMessage").innerHTML = "Congratulations, " + name + " you did it! Looks like you\'re competing against other miners. Buckle up, you got this " + name + "!!! <br/> <br/> <br/> Quick! It's a race to add the next block! Pick out you\'re transactions and lets get rolling!"                              
          }          
       </script>
 
       <script>             
-      // Generating Random number for miner
+         // Generating Random number for miner
       function myTransactions()  {            
         document.getElementById("transactions").innerHTML = Math.floor((Math.random() * 150) + 50); 
-        document.getElementById("transactionsMessage").innerHTML = "Great job " + name + "! We've got our transactions. And you managed to stay well under bitcoin's 1mb data limit, great job! Your a natural. <br/> <br/> <br/> Now let's go grab the networks last block header! We're going to need it. Remember, together with the header,  our transactions, and the nonce we'll have what it takes to complete this block. . <br/> <br/> <br/> Did I mention we are kind of in a rush? Let's go!!"
+        document.getElementById("transactionsMessage").innerHTML = "Great job " + name + "! We've got our transactions. And you managed to stay well under bitcoin's 1mb data limit, great job! Your a natural. <br/> <br/> <br/> Now let's go grab the networks last blocks hash! We're going to need it. Remember, together with the previous blocks hash,  our transactions, and the nonce, we'll have what it takes to complete this block. . <br/> <br/> <br/> Did I mention we are kind of in a rush? Let's go!!"
       }
       </script>
 
       <script>
         function blockHeader() {
-         document.getElementById("blockheadersMessage").innerHTML = "Sweeeet! " + name + ", your on a roll. Look at that gorgeous hunk of hexadecimal. To think that this header holds the 'history' of  bitcoin is just amazing. <br/> <br/> <br/> I was wrong about you" + name + " your doing a remarkable job. Lets get ready "
+         document.getElementById("blockheadersMessage").innerHTML = "Sweeeet! " + name + ", you\'re on a roll. Look at that gorgeous hunk of hexadecimal. To think that this simple block id holds the 'history' of  bitcoin is just amazing. <br/> <br/> <br/> I was wrong about you" + name + " you\'re doing a remarkable job. <br/> <br/> <br/> Great, so we have our previous block's hash and our transactions. Now we will hash them all together along with the nonce until we get an output value that is under the 'target' value."
          document.getElementById("blockheaders").innerHTML = "00000000000000000000000da86E8fB80D47Fb19443caaDA7c5FDF763E84A1c3190"
           /* {
          var result           = '';
@@ -188,7 +206,10 @@
                      }
       </script>
      
+
+
     
+
             <p>
 			</p>
 			<p>
