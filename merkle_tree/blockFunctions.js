@@ -26,13 +26,23 @@ const hashPair = (a, b = a) => {
 };
 
 const hashOne = data => {
-	if (data.length % 2 != 0)
+	var alertText = "Please enter a value to hash";
+	if (data.length == "")
 	{
-		data = "0"+data;
+		alert(alertText);
+		return alertText;
 	}
-	const bytes = toBytes(`${data}`).reverse();
-	const hash = sha256.array(bytes);
-	return toHex(hash.reverse());
+	else 
+	{
+		if (data.length % 2 != 0)
+		{
+			data = "0"+data;
+			
+		}
+		const bytes = toBytes(`${data}`).reverse();
+		const hash = sha256.array(bytes);
+		return toHex(hash.reverse());
+	}
 }
 
 /* Functions */

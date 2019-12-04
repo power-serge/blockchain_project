@@ -40,10 +40,14 @@
 					hash value for it. The hashing function we will be using is called SHA-256.
 				</p>
 				<p>
-					Let's try it. Input any text into the box below and click the "Hash It!" button.
+					Let's try it. Input some text into the box below and click the "Hash It!" button.
 				</p>
 				<input id="hash_it" type="text">
-				<button onclick="document.getElementById('hash_one').innerHTML = hashOne(document.getElementById('hash_it').value)">Hash It!</button>
+				<button onclick=
+					"document.getElementById('hash_one').innerHTML = 
+						hashOne(document.getElementById('hash_it').value)">
+					Hash It!
+				</button>
 				<p id="hash_one"></p>
 				<p>
 					Now, imagine you have a simple zip archive with 4 files in it. The application is on the web somewhere.
