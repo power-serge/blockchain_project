@@ -44,14 +44,11 @@
 				</p>
 				<input id="hash_it" type="text">
 				<button onclick=
-					document.getElementById('hash_one').innerHTML = 
-						hashOne(document.getElementById('hash_it'))>
+					"document.getElementById('hash_one').innerHTML = 
+						hashOne(document.getElementById('hash_it').value)">
 					Hash It!
 				</button>
 				<p id="hash_one"></p>
-				<script>
-					document.getElementById('hash_one').innerHTML = toHex(sha256.array("b"));
-				</script>
 				<p>
 					Now, imagine you have a simple zip archive with 4 files in it. The application is on the web somewhere.
 					You need to download it and make sure that the file downloaded correctly. In other words, you have

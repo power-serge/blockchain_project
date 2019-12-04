@@ -26,9 +26,11 @@ const hashPair = (a, b = a) => {
 };
 
 const hashOne = data => {
+	var alertText = "Please enter a value to hash";
 	if (data.length == "")
 	{
-		alert("Please enter a value");
+		alert(alertText);
+		return alertText;
 	}
 	else 
 	{
