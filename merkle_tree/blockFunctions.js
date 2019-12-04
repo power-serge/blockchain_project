@@ -26,9 +26,20 @@ const hashPair = (a, b = a) => {
 };
 
 const hashOne = data => {
-	const bytes = toBytes(`${data}`).reverse();
-	const hash = sha256.array(bytes);
-	return toHex(hash.reverse());
+	if (data.length % 2 == 0)
+	{
+		const bytes = toBytes(`${data}`).reverse();
+		const hash = sha256.array(bytes);
+		document.getElementById('hash_one').innerHTML = toHex(hash.reverse());
+	}
+	else if (data.length % 2 != 0)
+	{
+		document.getElementById('hash_one').innerHTML = toHex(sha256.array(data));
+	}
+	else if (data.length == "")
+	{
+		alert("Please enter a value");
+	}
 }
 
 /* Functions */
