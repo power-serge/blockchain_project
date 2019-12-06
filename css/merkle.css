@@ -6,6 +6,12 @@
 	padding: 25px;
 }
 
+.merkle_ops a[href*="http"], a.hashlink {
+	background: url(https://mdn.mozillademos.org/files/12982/external-link-52.png) no-repeat 100%;
+	background-size: 15px;
+	padding-right: 18px;
+}
+
 .merkle_ops, .merkle_ops button, .merkle_ops input {
 	font-family: Consolas, courier, monospace;
 	font-size: 20px;
@@ -33,13 +39,26 @@
 	margin-top: 15px;
 }
 
-#hash_one{
+#hash_one, .results{
 	color: #0cbb65;
+}
+
+.mrkl {
+	margin-bottom: 35px;
+	width: 85%;
+	display: block;	
+	margin-left: auto;
+	margin-right: auto;	
+	
 }
 
 /* Responsive layout - when the screen is less than 700px wide, make the two 
    columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
+	.mrkl {
+		width: 100%;
+	}
+	
 	.merkle_ops {
 		max-width: 100%;
 		margin: auto;
@@ -50,6 +69,10 @@
 /* Responsive layout - when the screen is less than 400px wide, make the navigation 
    links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
+	.mrkl {
+		width: 100%;
+	}
+	
 	.merkle_ops {
 		max-width: 100%;
 		margin: auto;

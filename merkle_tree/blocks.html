@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Merkle Trees</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../css/styles.css">
+		<link rel="stylesheet" href="../css/merkle.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
+			integrity="sha256-cVdRFpfbdE04SloqhkavI/PJBWCr+TuyQP3WkLKaiYo=" 
+			crossorigin="anonymous"></script>
+		<script src="blockFunctions.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<h1>Blockchain</h1>
+			<p>An <b>Analytical-Educational</b> approach </p>
+		</div>
+		<div class="navbar">
+			<a href="../index.html">Home</a>
+			<a href="../merkle_tree/merkle.html" >Merkle Trees</a>
+			<a href="../hashing/hashing.html">Hashing</a>
+			<a href="../consensus/consensus.html">Consensus</a>
+			<a href="#" class="active right">Block Operations</a>
+		</div>
+		<div class="merkle_ops">
+			<h2>Basic Bitcoin Block Operations</h2>
+			<p>
+				Here you'll find some block operations to play around with and see how it works.
+			</p>
+			<button type="button" onclick=displayLatestBlock()>Get The Latest block</button>
+			<p id="demo">Latest Block Here</p>
+			<br>
+			<form id="blockForm">
+				Please Enter Block Hash <br>
+				<input id="block" onkeypress=fetchOnEnter(this.id) type="text" name="blockNumber" size="64"><br>
+				<br>Please Enter Block Number (Height) 
+				<input id="height" onkeypress=fetchOnEnter(this.id) type="text" name="blockHeight" size="6"><br>
+			</form>
+			<br>
+			<button id="TxsBtn" type="button" onclick=fetchBlockByHash()> Get Block By Hash </button>
+			<button id="TxsBtn" type="button" onclick=fetchBlockByHeight()> Get Block by Height </button>
+			<div class="block_info">
+				<p id="info">The block id (hash) is:</p>
+				<p id="block_id"></p>
+				<p id="info">The block number is: <span id="block_num"></span></p>
+				<p id="info"># of Transactions is: <span id="block_size"></span></p>
+				<p id="info">The Merkle Root is:</p>
+				<p id="block_mrkl"></p>
+				<p id="info">The Transactions IDs (hashes) for this block are:</p>
+				<p id="block_txs"></p>
+			</div>
+		</div>
+		</div>
+		<div class="footer">
+			<h2>ECSU SENIOR RESEARCH PROJECT</h2>
+		</div>
+	</body>
+</html>

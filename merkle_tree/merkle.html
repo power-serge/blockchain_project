@@ -21,6 +21,7 @@
 			<a href="#" class="active">Merkle Trees</a>
 			<a href="../hashing/hashing.html">Hashing</a>
 			<a href="../consensus/consensus.html">Consensus</a>
+			<a href="blocks.html" class="right">Block Operations</a>
 		</div>
 		<div class="row">
 			<div class="side">
@@ -33,7 +34,7 @@
 				<h2>MERKLE TREES</h2>
 				<i>(For a better experience, we recommend looking at this page in a laptop or desktop)</i><br>
 				<p>
-					Let's begin with a simple concept: One-way <a href="../hashing/hashing.html">hashing</a> functions.
+					Let's begin with a simple concept: One-way <a href="../hashing/hashing.html" class="hashlink">hashing</a> functions.
 				</p>
 				<p>
 					A one-way hashing function is a simple mechanism that takes in something as an input and produces a unique
@@ -47,23 +48,23 @@
 				<p id="hash_one"></p>
 				<p>
 					Whatever text you hashed, should always produce the same result. For instance, you can go to
-					<a href="https://emn178.github.io/online-tools/sha256.html" target="new">this</a> website and enter the same text you entered in the "Hash It" box and you should
+					<a href="https://emn178.github.io/online-tools/sha256.html" target="new">this</a> 
+					website and enter the same text you entered in the "Hash It" box and you should
 					get the same output.
 				</p>
 				<p>
-					Now, imagine you have a simple zip archive with 4 files in it. The archive is on the web somewhere.
+					This presents a very interesting possibility. Could I also do this with a file?
+					The answer is "Yes". You can put a file through a hashing function and get a hash value. 
+					Then, other people can verify the contents of the file by downloading the file and using the 
+					same hashing function to produce a hash value. Let's see an example.
+				</p>
+				<p>
+					Imagine you have a simple zip archive with 4 files in it. The achive is on the web somewhere.
 					You need to download it and make sure that the file downloaded correctly. In other words, you have
-					to verify that the files are not corrupted. How can you do this?
+					to verify that the archive you have is the same as the one that was uploaded to the web site.
 				</p>
 				<p>
-					One way is using what is known as the checksum. The authors of the zip archive will use a 
-					known hashing function, such as SHA-256, to hash the contents of the archive and will make the resulting hash value public.
-					This way after you download the zip archive, you can use the same hashing function on your own to hash the contents
-					of the archive and compare your result with the one the authors got. If you get the same result, it means that the contents
-					of the archive you downloaded must be the same as the contents of the one that the authors made available.
-				</p>
-				<p>
-					Let's say you have the following files in the archive:
+					The archive contains the following files:
 				</p>
 				<ul>
 					<li><i>blockFunctions.js</i></li>
@@ -71,19 +72,20 @@
 					<li><i>index.html</i></li>
 					<li><i>merkle.html</i></li>
 				</ul>
-				
+				<img class="home_img mrkl" src="../imgs/zip_archive.jpg">
 				<p>
-					Right now, the file looks like this:
+					By using a hashing utility such as CRC SHA, which usually comes installed with <a href="https://www.7-zip.org/" target="new">7-zip</a>,
+					we can hash the contents of the whole zip archive and get a result.
 				</p>
-				<img src="../imgs/zip_archive.jpg">
+				<img class="home_img mrkl" src="../imgs/crc_sha.jpg">
 				<p>
-					
+					By clicking on the * simbol, we can get all the resulting hashes.
 				</p>
-				
+				<img class="home_img mrkl"src="../imgs/checksum_info.jpg">
 				<p>
-					
+					If you go to the <a href="https://github.com/power-serge/blockchain_project/blob/master/blockchain.7z">repo</a> 
+					page, you can download this zip file and hash it. You should get the same results as shown on the image above.
 				</p>
-				
 				<h3>Basic Bitcoin Block Operations</h3>
 				<p>
 					Here you'll find some block operations to play around with and see how it works.
