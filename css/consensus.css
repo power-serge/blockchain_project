@@ -1,3 +1,18 @@
+button.do{
+	background-color: whitesmoke;
+	padding: 10px 20px;
+	font-size: medium;
+	border-color: black;
+	border-style: groove;
+}
+
+button.questions{
+	background-color: aquamarine;
+	padding: 10px 20px;
+	font-size: medium;
+	border-color: black;
+	border-style: groove;
+}
 #dialogoverlay{
 	 display: none;
 	 opacity: .8;
