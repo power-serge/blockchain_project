@@ -34,14 +34,20 @@ const hashOne = data => {
 	}
 	else 
 	{
-		if (data.length % 2 != 0)
-		{
-			data = "0"+data;
-			
-		}
-		const bytes = toBytes(`${data}`).reverse();
-		const hash = sha256.array(bytes);
-		return toHex(hash.reverse());
+		return toHex(sha256.array(data));
+	}
+}
+
+function hashIt (valueToHash){
+	const HASH_TEXT = 
+		"<br><br>The value that was just produced is the hash value or simple <i>The Hash</i>."
+	let hash_one = document.getElementById('hash_one');
+	
+	hash_one.innerHTML = hashOne(valueToHash);
+	
+	if (!hash_one.innerHTML.includes("Please"))
+	{
+		hash_one.innerHTML += HASH_TEXT;
 	}
 }
 
