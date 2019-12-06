@@ -74,7 +74,7 @@
 					<h2>CONSENSUS</h2>
 					<br>
 					<br>
-					<button onclick="minerName()">Become a bitcoin miner</button>
+					<button class = "do" onclick="minerName()">Become a bitcoin miner</button>
 					<p id="minerName"></p>
 					<p id="minernameMessage"></p>
 					<p id="minerGoodbye"></p>
@@ -82,45 +82,45 @@
 					<br>
 					<br>
 					<!-- Example of html button without Javascript functions:	   <button onclick="alert('Create you\'re mining network')">Initiate Default Alert</button> -->						  
-					<button onclick="Alert.render('So, we know that Bitcoin is decentralized. This means that no single authority can make decisions for all parties. Instead the network is in control. This means that everytime a transaction is made, a copy is sent to every node in the network. These nodes represent an individual in the bitcoin network. Now, the mining network is special! The mining nodes are unique because they represent individuals who are actually mining bitcoin. miners are in a sense a subset of all nodes who make up the network. Lets use the good ol class room as an analogy to better explain. The class room represents the network. The students are nodes who represent users spending and exchanging bitcoin. The teacher represents the miner.')">Mining Network?</button> 
+					<button class = "questions" onclick="Alert.render('So, we know that Bitcoin is decentralized. This means that no single authority can make decisions for all parties. Instead the network is in control. This means that everytime a transaction is made, a copy is sent to every node in the network. These nodes represent an individual in the bitcoin network. Now, the mining network is special! The mining nodes are unique because they represent individuals who are actually mining bitcoin. miners are in a sense a subset of all nodes who make up the network. Lets use the good ol class room as an analogy to better explain. The class room represents the network. The students are nodes who represent users spending and exchanging bitcoin. The teacher represents the miner.')">Mining Network?</button> 
 					<br> 
 					<br>
 					<br>
 					<br>
-					<button onclick="myMiners()">Create your mining network</button>		  
+					<button class = "do" onclick="myMiners()">Create your mining network</button>		  
 					<p id="miners"></p>
 					<p id="miningMessage"></p>
 					<br>
 					<br>
-					<button onclick="Alert.render('Since bitcoin only allows a block to be added on average every 10 minutes, not all transactions can be verified instantly. How it works is, when a transaction is made it goes into a pool. Once a block is added, miners then go to the pool and pick out the next set of transactions they would like to add to a block. Its important to note that bitcoin has a data cap on its blocks, therefore a miner cannot select thousands of transactions. So, this leads miners to being very strategic in selecting their blocks. One good way to make sure your block is verified quickly is to leave a nice juicy tip for your miner. This certaintly gives some incentive to the miner. This is known as the miners tip. ')">Transactions?</button>		 
+					<button class = "questions" onclick="Alert.render('Since bitcoin only allows a block to be added on average every 10 minutes, not all transactions can be verified instantly. How it works is, when a transaction is made it goes into a pool. Once a block is added, miners then go to the pool and pick out the next set of transactions they would like to add to a block. Its important to note that bitcoin has a data cap on its blocks, therefore a miner cannot select thousands of transactions. So, this leads miners to being very strategic in selecting their blocks. One good way to make sure your block is verified quickly is to leave a nice juicy tip for your miner. This certaintly gives some incentive to the miner. This is known as the miners tip. ')">Transactions?</button>		 
 					<br>
 					<br>
 					<br>
 					<br>
-					<button onclick="myTransactions()">Pick your transactions</button>
+					<button class = "do" onclick="myTransactions()">Pick your transactions</button>
 					<p id="transactions"></p>
 					<p id="transactionsMessage"></p>
 					<br>
 					<br>
-					<button onclick="Alert.render('A block header is an 80-byte long string. Its composition is as follows: A 4-byte long Bitcoin version number, 32-byte previous block hash, 32-byte long Merkle root, 4-byte long timestamp of the block, 4-byte long difficulty target for the block, and the 4-byte long nonce used by miners. The blocks hash, commenly referred to as the block id is the result of hashing the block header. The block hash is typically displayed as a 64 bit hexadecimal number leading with a bunch. So in essence, the block hash contains the entire history of bitcoin')">Block Hash?</button>
+					<button class = "questions" onclick="Alert.render('A block header is an 80-byte long string. Its composition is as follows: A 4-byte long Bitcoin version number, 32-byte previous block hash, 32-byte long Merkle root, 4-byte long timestamp of the block, 4-byte long difficulty target for the block, and the 4-byte long nonce used by miners. The blocks hash, commenly referred to as the block id is the result of hashing the block header. The block hash is typically displayed as a 64 bit hexadecimal number leading with a bunch. So in essence, the block hash contains the entire history of bitcoin')">Block Hash?</button>
 					<br>
 					<br>
 					<br>
 					<br>
-					<button onclick="blockHeader()">Grab last block's hash</button>
+					<button class = "questions" onclick="blockHeader()">Grab last block's hash</button>
 					<p id="blockheaders"></p>
 					<p id="blockheadersMessage"></p>
 					<br>
 					<br>		   
-					<button onclick="Alert.render('So, you\'re probably asking yourself, what is a hash? A hash, commonly referred to as hashing, is a mathematical function that takes an input value and turns it into a compressed numerical value. This value is known as the hash. Imagine giving a hash function the entire script of a movie. The hash function will take this text of a certain legnth/value and output a hash of the script that is now represented as a compressed numerical value. The sha256 hashing function used by bitcoin for instance, provides an output in a 64 bit hexadecimal format.')">Sha256-Hash?</button>
+					<button class = "questions" onclick="Alert.render('So, you\'re probably asking yourself, what is a hash? A hash, commonly referred to as hashing, is a mathematical function that takes an input value and turns it into a compressed numerical value. This value is known as the hash. Imagine giving a hash function the entire script of a movie. The hash function will take this text of a certain legnth/value and output a hash of the script that is now represented as a compressed numerical value. The sha256 hashing function used by bitcoin for instance, provides an output in a 64 bit hexadecimal format.')">Sha256-Hash?</button>
 					<br>
 					<br>
 					<br>
-					<button onclick="Alert.render('The block\'s difficulty or more commonly referred to as the \'Target Hash\' is adjusted by Bitcoin every 2016 blocks. The purpose of changing the target is to keep the average time it takes for miner\'s to add a block at the 10 minute mark. The creator of Bitcoin, \'Satoshi Nakamoto\' chose 10 minutes for the sole purpose that he felt 10 minutes will be a sufficient enough time for all parts of the world with a network connection to recieve the information of the current added block. So, how does the target work? Well the target refers directly to the possibilites that the Sha256 algorithm provides. It\'s output value possibilities are roughly around 2^256. This number is astronomical and very difficult for computers to keep on concatanating values to the end of a string until they can find a specific nonce (read more about nonce next button). This is where the target comes in. If blocks are being mined on average at a pace faster than 10 minutes, then after 2016 blocks the target will be lowered. The exact opposite will occur if miners mine blocks at an average higher than 10 minutes. For example, Bitcoin sets the block target at 20. This means that the expectecd value from the blocks hash must be a lower value than 2^(256 - target) = 2^(256 - 20) = 2^236. If after 2016 blocks miners are mining blocks to fast, the target is lowered meaning the value expected is higher. 2^(256 - (target < 20) will be more difficult to produce, thus theoretically slowing down the time it takes miners to mine a block in order to acheieve the desired 10 minute average block time. The exact opposite will occur with blocks being mined to slow. The target will increase, meaning 2^(256 - target > 20), thus reducing the complexity of blocks being mined and increase the desired time in order to fall within that 10 minute block window. ). ')">Target?</button>
+					<button class = "questions" onclick="Alert.render('The block\'s difficulty or more commonly referred to as the \'Target Hash\' is adjusted by Bitcoin every 2016 blocks. The purpose of changing the target is to keep the average time it takes for miner\'s to add a block at the 10 minute mark. The creator of Bitcoin, \'Satoshi Nakamoto\' chose 10 minutes for the sole purpose that he felt 10 minutes will be a sufficient enough time for all parts of the world with a network connection to recieve the information of the current added block. So, how does the target work? Well the target refers directly to the possibilites that the Sha256 algorithm provides. It\'s output value possibilities are roughly around 2^256. This number is astronomical and very difficult for computers to keep on concatanating values to the end of a string until they can find a specific nonce (read more about nonce next button). This is where the target comes in. If blocks are being mined on average at a pace faster than 10 minutes, then after 2016 blocks the target will be lowered. The exact opposite will occur if miners mine blocks at an average higher than 10 minutes. For example, Bitcoin sets the block target at 20. This means that the expectecd value from the blocks hash must be a lower value than 2^(256 - target) = 2^(256 - 20) = 2^236. If after 2016 blocks miners are mining blocks to fast, the target is lowered meaning the value expected is higher. 2^(256 - (target < 20) will be more difficult to produce, thus theoretically slowing down the time it takes miners to mine a block in order to acheieve the desired 10 minute average block time. The exact opposite will occur with blocks being mined to slow. The target will increase, meaning 2^(256 - target > 20), thus reducing the complexity of blocks being mined and increase the desired time in order to fall within that 10 minute block window. ). ')">Target?</button>
 					<br>
 					<br>
 					<br>
-					<button onclick="Alert.render('The nonce is undoubtably one of the most important aspects of Bitcoin\'s proof of work algorithm. We spoke about how hashing algorithms output a value. The Sha256 for example hashes and outputs a 256 bit numerical value that is represented as a 64 bit hexadecimal. If any changes are made to the original input\'s string, the hashing function will produce a completely different result. The nonce is a special circumstance. The nonce is an arbitrary number that is constantly modified in order to produce a hash that is under Bitcoin\'s desired target. This is why a block\'s hash/id begins with a certain amount of zero\'s. Typically one can identify the block\'s difficulty, simply by counting the leading zero\'s. In other words, lets say I want to hash your name. Let\'s say, your name hashes to a hexadecimal value of aAaAaAaA... Now, let\'s add a number to the end of your name. Now, if we hash this it should give us a completely different output. If however, the output begins with a zero, then we can essentially continue adding letters or numbers to the end of that zero, until we get a value that gives us a second zero and so forth. We continue this process until we have a value that satisfies bitcoin\'s target. That is, we continue this process until we get 1,2,3,4,5,... leading zero\'s.')">Nonce?</button>
+					<button class = "questions" onclick="Alert.render('The nonce is undoubtably one of the most important aspects of Bitcoin\'s proof of work algorithm. We spoke about how hashing algorithms output a value. The Sha256 for example hashes and outputs a 256 bit numerical value that is represented as a 64 bit hexadecimal. If any changes are made to the original input\'s string, the hashing function will produce a completely different result. The nonce is a special circumstance. The nonce is an arbitrary number that is constantly modified in order to produce a hash that is under Bitcoin\'s desired target. This is why a block\'s hash/id begins with a certain amount of zero\'s. Typically one can identify the block\'s difficulty, simply by counting the leading zero\'s. In other words, lets say I want to hash your name. Let\'s say, your name hashes to a hexadecimal value of aAaAaAaA... Now, let\'s add a number to the end of your name. Now, if we hash this it should give us a completely different output. If however, the output begins with a zero, then we can essentially continue adding letters or numbers to the end of that zero, until we get a value that gives us a second zero and so forth. We continue this process until we have a value that satisfies bitcoin\'s target. That is, we continue this process until we get 1,2,3,4,5,... leading zero\'s.')">Nonce?</button>
 					<br>
 					<br>
 					<br>
@@ -136,7 +136,7 @@
 					Let's pull up Bitcoin's latest target. 
 					<br>
 					<br>
-					<button onclick="Alert.render('Calculating! Hold your horses! Uhhhhhhh. Got it! Current target is 18. This means you need an output that leads with 18 zero\'s. Go!!!!!')">Bitcoin's Target</button>
+					<button class = "do" onclick="Alert.render('Calculating! Hold your horses! Uhhhhhhh. Got it! Current target is 18. This means you need an output that leads with 18 zero\'s. Go!!!!!')">Bitcoin's Target</button>
 					<br>
 					<br>
 					<br>
@@ -146,13 +146,21 @@
 					<br>
 					<!------------------------------------------------------------------- HASH -------------------------------------------------------->
 					<input id="hash_it" type="text">
-					<button onclick="document.getElementById('hash_one').innerHTML = hashOne(document.getElementById('hash_it').value)">Hash It!</button>
+					<button class = "do" onclick="document.getElementById('hash_one').innerHTML = hashOne(document.getElementById('hash_it').value)">Hash It!</button>
 					<p id="hash_one"></p>
-					<!--
-						<button type="button" onClick="onClick()">Keep count of hashes</button> 
-						<p>Hashes: <a id="clicks">0</a></p> 
-						<p id="finalHash"></p>
-						-->
+					
+					
+					Keep track of how many hash attempts it takes to find the nonce. CLICK BELOW.
+					<br>
+					<br>
+
+					<button class = "do" onclick="myFunction()">Hash attempt</button>					
+					<p id="clicks"></p>
+					<p id="finalNonce"></p>
+					
+					<button class = "do" onclick="Alert.render('00000000000000000d4735e3a265e16eee03f59718b9b5d03d4735e3a2')">Hash nonce</button>
+
+					
 					<!---------------------------------------------------------------- Miner Name ----------------------------------------------------->
 					<script>
 						function minerName(){
@@ -196,14 +204,21 @@
 										}  */  
 									 }
 					</script> 
-					<!--
-						This is an attempt to count clicks. Counts first time hash it button is clicked but no more. To be inserted in hashOne in blockFunction.js
-						   var clicks = 0;	  
+					
+					<script>						
+						var clicks = 0;
+					   function myFunction() {
 						   clicks += 1;
-						   document.getElementById("clicks").innerHTML = clicks;  
+						   document.getElementById("clicks").innerHTML = clicks;					   
+						   if(clicks == 4)	{
+							document.getElementById("finalNonce").innerHTML = "Oh no! We were so close! It appears one of Bitcoin's biggest mining groups, <br/> \"Poolin\" beat us to the nonce. This is what they claim to be is the nonce: <br/> <br/> <br/> 37bBeA248FgaH1CfGha234da86E8fB80 <br/> <br/> <br/> Let\'s go ahead and verify that this works. Remember, obtaining the nonce is <br/> extremeley difficult. However, verifying is simple. Go ahead and <br/> plug in the nonce and hash it to see if we reach our target (18 leading zero\'s)"
+						   }
+					   }
+				   </script>
+						 
 						
 						
-						-->
+					
 				</div>
 			</div>
 			<div class="footer">
