@@ -40,7 +40,7 @@ const hashOne = data => {
 
 function hashIt (valueToHash){
 	const HASH_TEXT = 
-		"<br><br>The value that was just produced is the hash value or simple <i>The Hash</i>."
+		"<br><br>The value that was just produced is the hash value or simply <i>The Hash</i>."
 	let hash_one = document.getElementById('hash_one');
 	
 	hash_one.innerHTML = hashOne(valueToHash);
