@@ -47,23 +47,23 @@
 				<p id="hash_one"></p>
 				<p>
 					Whatever text you hashed, should always produce the same result. For instance, you can go to
-					<a href="https://emn178.github.io/online-tools/sha256.html" target="new">this</a> website and enter the same text you entered in the "Hash It" box and you should
+					<a href="https://emn178.github.io/online-tools/sha256.html" target="new">this</a> 
+					website and enter the same text you entered in the "Hash It" box and you should
 					get the same output.
 				</p>
 				<p>
-					Now, imagine you have a simple zip archive with 4 files in it. The archive is on the web somewhere.
+					This presents a very interesting possibility. Could I also do this with a file?
+					The answer is "Yes". You can put a file through a hashing function and get a hash value. 
+					Then, other people can verify the contents of the file by downloading the file and using the 
+					same hashing function to produce a hash value. Let's see an example.
+				</p>
+				<p>
+					Imagine you have a simple zip archive with 4 files in it. The achive is on the web somewhere.
 					You need to download it and make sure that the file downloaded correctly. In other words, you have
-					to verify that the files are not corrupted. How can you do this?
+					to verify that the archive you have is the same as the one that was uploaded to the web site.
 				</p>
 				<p>
-					One way is using what is known as the checksum. The authors of the zip archive will use a 
-					known hashing function, such as SHA-256, to hash the contents of the archive and will make the resulting hash value public.
-					This way after you download the zip archive, you can use the same hashing function on your own to hash the contents
-					of the archive and compare your result with the one the authors got. If you get the same result, it means that the contents
-					of the archive you downloaded must be the same as the contents of the one that the authors made available.
-				</p>
-				<p>
-					Let's say you have the following files in the archive:
+					The archive contains the following files:
 				</p>
 				<ul>
 					<li><i>blockFunctions.js</i></li>
@@ -71,15 +71,10 @@
 					<li><i>index.html</i></li>
 					<li><i>merkle.html</i></li>
 				</ul>
-				
-				<p>
-					Right now, the file looks like this:
-				</p>
 				<img src="../imgs/zip_archive.jpg">
 				<p>
-					
+					By using a hashing utility such as CRC-32
 				</p>
-				
 				<p>
 					
 				</p>
