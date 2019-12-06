@@ -38,37 +38,20 @@ const hashOne = data => {
 	}
 }
 
-function hashIt (valueToHash){
-	const HASH_TEXT = 
-		"<br><br>The value that was just produced is the hash value or simple <i>The Hash</i>."
-	let hash_one = document.getElementById('hash_one');
-	
-	hash_one.innerHTML = hashOne(valueToHash);
-	
-	if (!hash_one.innerHTML.includes("Please"))
-	{
-		hash_one.innerHTML += HASH_TEXT;
-	}
-}
-
 /* Functions */
-/* Displays the hash of the lates added block to the Bitcoin chain */
-function displayLatestBlock() {
-	LATEST_HASH().then(hash => document.getElementById("demo").innerHTML = hash);
+/* Displays the hash of the latest added block to the Bitcoin chain in the given element*/
+function displayLatestBlock(element) {
+	LATEST_HASH().then(hash => element.innerHTML = hash);
 }
-
-function fetchBlockByHash() {
-	const block_hash = document.getElementById("block").value;
-
-	if (block_hash.length != 64) {
+function fetchBlockByHash(input) {
+	if (input.length != 64) {
 		alert("Please Enter a Valid Block hash")
 	} else {
-		parseBlockInfo(block_hash);
+		parseBlockInfo(input);
 	}
 }
 
-function fetchBlockByHeight() {
-	const height = document.getElementById("height").value;
+function fetchBlockByHeight(height) {
 	if (height == "" || isNaN(height)) {
 		alert("Please Enter a Valid Number");
 	} else {
@@ -106,17 +89,17 @@ function displayData(root, txs, height, block_id) {
 	document.getElementById("block_txs").innerHTML = txt;
 }
 
-function fetchOnEnter(input_id) {
+function fetchOnEnter(element) {
 	if (event.keyCode === 13) {
 		event.preventDefault();
 
-		if (input_id == "block") {
-			fetchBlockByHash();
+		if (element.id == "block") {
+			fetchBlockByHash(element.value);
 			return;
 		}
 
-		if (input_id == "height") {
-			fetchBlockByHeight();
+		if (element.id == "height") {
+			fetchBlockByHeight(element.value);
 		}
 	}
 }
