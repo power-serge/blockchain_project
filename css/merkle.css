@@ -49,10 +49,20 @@
 	display: block;	
 	margin-left: auto;
 	margin-right: auto;	
-	
 }
 
-ul, li{
+li.results {
+	list-style-type: none;
+}
+
+.results::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+  
+.tree ul, .tree li{
 	padding: 15px;
 }
 
