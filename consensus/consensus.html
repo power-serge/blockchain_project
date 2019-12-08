@@ -88,6 +88,9 @@
 					<br>
 					<br>
 					<br>
+				</p>
+					<img src="imgs/mining.jpg" id="large_pic">
+				<p>
 					<button class = "do" onclick="myMiners()">Create your mining network</button>		  
 					<p id="miners"></p>
 					<p id="miningMessage"></p>
@@ -159,10 +162,22 @@
 					<p id="clicks"></p>
 					<p id="finalNonce"></p>
 					
-					<button class = "do" onclick="Alert.render('00000000000000000d4735e3a265e16eee03f59718b9b5d03d4735e3a2')">Hash nonce</button>
+					<input class = "text"> 
+					<button class = "do" onclick="Alert.render('00000000000000000d4735e3a265e16eee03f59718b9b5d03d4735e3a2' + '<br/> <br/> <br/> It works! A complete bummer they got to it before we did but that is part of the mining process. Everyone has roughly 10 minutes to work as fast as they possibly can and being beat unfortunately inevitable. The good news is we live to fight another day! Let\'s get back to work and repeat this whole process! You are now an experienced miner! I\'m expecting a lot out of you' + name + '.')">Hash nonce</button>
 
 					
 					<!---------------------------------------------------------------- Miner Name ----------------------------------------------------->
+					
+						<br>
+						<br>
+						<br>
+					<button class = "do" type = "submit" onclick= "window.location.reload();"">Restart mining process</button>
+
+					<a href="#top">
+						<span><i class="icon-arrow-up"></i>&nbsp;Go to Top</span>
+						</a>
+						
+
 					<script>
 						function minerName(){
 						name = window.prompt("Welcome to the Bitcoin mining club aka The Consensus Crew (totally just made that up). Err.. Um... Don't take offense, this is totally embarassing but, what was your name again?");			   
