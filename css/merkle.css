@@ -6,7 +6,7 @@
 	padding: 25px;
 }
 
-.merkle_ops a[href*="http"], a.hashlink {
+.merkle_ops a[href*="http"], a.jumpTo {
 	background: url(https://mdn.mozillademos.org/files/12982/external-link-52.png) no-repeat 100%;
 	background-size: 15px;
 	padding-right: 18px;
@@ -39,7 +39,7 @@
 	margin-top: 15px;
 }
 
-#hash_one, .results{
+#hash_one, #hash2, .results{
 	color: #0cbb65;
 }
 
@@ -55,6 +55,10 @@ li.hashpair {
 	list-style-type: none;
 }
 
+.block150k li{
+	list-style-type: square;
+	padding: 8px;
+}
 
 .hashpair::before {
   content: "\25B6";

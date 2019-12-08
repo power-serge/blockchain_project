@@ -36,7 +36,7 @@
 				<h3>Introduction</h3>
 				<i>(For a better experience, we recommend looking at this page in a laptop or desktop)</i><br>
 				<p>
-					Let's begin with a simple concept: One-way <a href="../hashing/hashing.html" class="hashlink">hashing</a> functions.
+					Let's begin with a simple concept: One-way <a href="../hashing/hashing.html" class="jumpTo">hashing</a> functions.
 				</p>
 				<p>
 					A one-way hashing function is a simple mechanism that takes in something as an input and produces a unique
@@ -90,10 +90,80 @@
 				</p>
 				<h3 id="mrkl_explain">Merkle Trees Explained</h3>
 				<p>
-					
+					Now that you are familiar with hashing, let's look at how it fits in with merkle trees.
 				</p>
+				<p>
+					A merkle tree is a data structure that is made out of hashes.
+					Merkle trees are based on binary search trees.
+					But each node in the tree is a hash of it's two child nodes.
+				</p>
+				<p>
+					Typically, the leaf nodes at the bottom of the tree, are the hash of something real.
+					That means the leaf nodes of the tree usually represent actual files.
+					In our prior example, we could hash each file individually and then use the 
+					merkle tree algorithm to build the tree.
+				</p>
+				<p>
+					Once the merkle tree is built, the top hash is called the merkle root.
+					The merkle root is a representation of a whole unit.
+				</p>
+				<p>
+					In Bitcoin's merkle tree algorithm, each leaf node is the hash of a transaction.
+					A transaction is a record of an exchange of bitcoins between different parties.
+					Each transaction is hashed using the SHA-256 algorithm.
+					This process is similar to how we can use the CRC SHA utility to hash a zip archive.
+				</p>
+				<p>
+					But Bitcoin's algorithm uses a SHA-256 double hash. 
+					Fancy term, it just means that you hash something and then you hash the hash.
+					Confused? Let's try it. Remember our hash it box?
+					We'll use it again. Enter something in the text box and then hash it.
+				</p>
+				<input id="hash_it2" type="text" size="64">
+				<button onclick=hashIt2(document.getElementById('hash_it2').value)>Hash It!</button>
+				<p id="hash2"></p>
+				<p id="hide_it">
+					Delete your original text from the box. Then, copy the resulting hash value and paste in the box. Click Hash It! again.
+				</p>
+				<p>
+					Let's see a real example.
+					Block 150000 in the Bitcoin blockchain has the following transactions hashes:
+					
+					<ul class="block150k">
+						<li>bcdc61cbecf6137eec5c8ad4047fcdc36710e77e404b17378a33ae605920afe1</li>
+						<li>f7f4c281ee20ab8d1b00734b92b60582b922211a7e470accd147c6d70c9714a3</li>
+						<li>b5f6e3b217fa7f6d58081b5d2a9a6607eebd889ed2c470191b2a45e0dcb98eb0</li>
+						<li>4206f171f06913b1d40597edcaf75780559231fb504c49ba85a4a9ae949e8b95</li>
+						<li>a1a6ad6ff321c76496a89b6a4eb9bcfb76b9e068b677d5c7d427c51ca08c273d</li>
+						<li>89c82039452c14a9314b5834e5d2b9241b1fdccdb6e4f4f68e49015540faaf95</li>
+						<li>25c6a1f8c0b5be2bee1e8dd3478b4ec8f54bbc3742eaf90bfb5afd46cf217ad9</li>
+						<li>57eef4da5edacc1247e71d3a93ed2ccaae69c302612e414f98abf8db0b671eae</li>
+						<li>8d30eb0f3e65b8d8a9f26f6f73fc5aafa5c0372f9bb38aa38dd4c9dd1933e090</li>
+						<li>13e3167d46334600b59a5aa286dd02147ac33e64bfc2e188e1f0c0a442182584</li>
+					</ul>
+					You can verify this by going to <a href="blocks.html" target="new" class="jumpTo">Block Operations</a>.
+					Enter 150000 in the Height text box and click the "Get Block By Height" button.
+				</p>
+				<p>
+					These hashes are the result of hashing all the information in a transaction to come up with
+					a unique fixed-length value that identifies the transaction with respect to the entire	blockchain.
+				</p>
+				<p>
+					Bitcoin's algorithm takes pairs of transactions and hashes them together to come up with a result.
+					If the number of transactions is odd at any given level of the tree, the transaction is hashed with itself.
+					This simple process is repeated until reaching the top of the tree.
+					At that point, the last resulting hash is the <i>Merkle Root</i>.
+				</p>
+				<p>
+					Below is a break down of these process takes place.
+				</p>
+				
 				<div class="tree">
 					<h3>Round 1</h3>
+					<p>
+						In the first round, the 10 transactions are paired up. The text in red represents the original transaction hash
+						and the text in blue represents the resulting hash value of hashing a pair of transactions.
+					</p>
 					<ul>
 						<li class="round_one">bcdc61cbecf6137eec5c8ad4047fcdc36710e77e404b17378a33ae605920afe1</li>
 						<li class="round_one">f7f4c281ee20ab8d1b00734b92b60582b922211a7e470accd147c6d70c9714a3</li>
