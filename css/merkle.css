@@ -39,7 +39,7 @@
 	margin-top: 15px;
 }
 
-#hash_one, .results{
+#hash_one, .hashpair{
 	color: #0cbb65;
 }
 
@@ -51,12 +51,12 @@
 	margin-right: auto;	
 }
 
-li.results {
+li.hashpair {
 	list-style-type: none;
 }
 
 
-.results::before {
+.hashpair::before {
   content: "\25B6";
   color: grey;
   display: inline;
