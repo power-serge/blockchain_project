@@ -1,5 +1,3 @@
-# Use this file to compute the merkle root by harcoding strings inside the txHashes list
-
 import hashlib, codecs, requests, json
 
 # This function builds the tree and returns the merkle root
@@ -14,6 +12,7 @@ def calculate_root(hashList):
         newHashList.append(hashPair(hashList[-1], hashList[-1]))
     return calculate_root(newHashList)
 
+#This function is used to hash pairs of transaction hashes.
 def hashPair(a, b):
     # Reverse inputs before and after hashing due to big-endian/little-endian processing
     #python 2 code: a1 = a.decode('hex')[::-1] 
@@ -49,6 +48,7 @@ def get_block_hash(block_data):
 def get_prev_block(block_data):
     return block_data['prev_block']
 
+#convinient function to display some values
 def print_block_info(block_data):
     print("THE BLOCK HASH IS:")
     print(get_block_hash(block_data))

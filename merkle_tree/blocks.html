@@ -9,7 +9,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
 			integrity="sha256-cVdRFpfbdE04SloqhkavI/PJBWCr+TuyQP3WkLKaiYo=" 
 			crossorigin="anonymous"></script>
-		<script src="blockFunctions.js"></script>
+		<script src="../js/blockFunctions.js"></script>
 	</head>
 	<body>
 		<div class="header">
@@ -28,27 +28,27 @@
 			<p>
 				Here you'll find some block operations to play around with and see how it works.
 			</p>
-			<button type="button" onclick=displayLatestBlock()>Get The Latest block</button>
-			<p id="demo">Latest Block Here</p>
+			<button type="button" onclick=displayLatestBlock(document.getElementById('demo'))>Get The Latest block</button>
+			<p id="demo" class="results"></p>
 			<br>
 			<form id="blockForm">
 				Please Enter Block Hash <br>
-				<input id="block" onkeypress=fetchOnEnter(this.id) type="text" name="blockNumber" size="64"><br>
+				<input id="block" onkeypress=fetchOnEnter(this) type="text" name="blockNumber" size="64"><br>
 				<br>Please Enter Block Number (Height) 
-				<input id="height" onkeypress=fetchOnEnter(this.id) type="text" name="blockHeight" size="6"><br>
+				<input id="height" onkeypress=fetchOnEnter(this) type="text" name="blockHeight" size="6"><br>
 			</form>
 			<br>
-			<button id="TxsBtn" type="button" onclick=fetchBlockByHash()> Get Block By Hash </button>
-			<button id="TxsBtn" type="button" onclick=fetchBlockByHeight()> Get Block by Height </button>
+			<button id="TxsBtn" type="button" onclick=fetchBlockByHash(document.getElementById('block').value)> Get Block By Hash </button>
+			<button id="TxsBtn" type="button" onclick=fetchBlockByHeight(document.getElementById('height').value)> Get Block by Height </button>
 			<div class="block_info">
 				<p id="info">The block id (hash) is:</p>
-				<p id="block_id"></p>
-				<p id="info">The block number is: <span id="block_num"></span></p>
-				<p id="info"># of Transactions is: <span id="block_size"></span></p>
+				<p id="block_id" class="results"></p>
+				<p id="info">The block number is: <span id="block_num" class="results"></span></p>
+				<p id="info"># of Transactions is: <span id="block_size" class="results"></span></p>
 				<p id="info">The Merkle Root is:</p>
-				<p id="block_mrkl"></p>
+				<p id="block_mrkl" class="results"></p>
 				<p id="info">The Transactions IDs (hashes) for this block are:</p>
-				<p id="block_txs"></p>
+				<p id="block_txs" class="results"></p>
 			</div>
 		</div>
 		</div>

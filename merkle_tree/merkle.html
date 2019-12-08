@@ -9,7 +9,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
 			integrity="sha256-cVdRFpfbdE04SloqhkavI/PJBWCr+TuyQP3WkLKaiYo=" 
 			crossorigin="anonymous"></script>
-		<script src="blockFunctions.js"></script>
+		<script src="../js/blockFunctions.js"></script>
+		<script src="../js/merkle.js"></script>
 	</head>
 	<body>
 		<div class="header">
@@ -26,12 +27,13 @@
 		<div class="row">
 			<div class="side">
 				<h2>Sections</h2>
-				<h3><a href="#"> Section One</a></a></h3>
-				<h3><a href="#"> Section Two</a></a></h3>
-				<h3><a href="#"> Section Three</a></a></h3>
+				<h3><a href="#intro"> Introduction</a></a></h3>
+				<h3><a href="#mrkl_explain"> Merkle Trees Explained</a></a></h3>
+				<h3><a href="#test1"> Making Trees</a></a></h3>
 			</div>
 			<div class="merkle_ops">
-				<h2>MERKLE TREES</h2>
+				<h2 id="intro">MERKLE TREES</h2>
+				<h3>Introduction</h3>
 				<i>(For a better experience, we recommend looking at this page in a laptop or desktop)</i><br>
 				<p>
 					Let's begin with a simple concept: One-way <a href="../hashing/hashing.html" class="hashlink">hashing</a> functions.
@@ -78,7 +80,7 @@
 					we can hash the contents of the whole zip archive and get a result.
 				</p>
 				<img class="home_img mrkl" src="../imgs/crc_sha.jpg">
-				<p>
+				<p id="test1">
 					By clicking on the * simbol, we can get all the resulting hashes.
 				</p>
 				<img class="home_img mrkl"src="../imgs/checksum_info.jpg">
@@ -86,32 +88,84 @@
 					If you go to the <a href="https://github.com/power-serge/blockchain_project/blob/master/blockchain.7z">repo</a> 
 					page, you can download this zip file and hash it. You should get the same results as shown on the image above.
 				</p>
-				<h3>Basic Bitcoin Block Operations</h3>
+				<h3 id="mrkl_explain">Merkle Trees Explained</h3>
 				<p>
-					Here you'll find some block operations to play around with and see how it works.
+					
 				</p>
-				<button type="button" onclick=displayLatestBlock()>Get The Latest block</button>
-				<p id="demo">Latest Block Here</p>
+				
+				<h3>Round 1</h3>
+				<ul>
+					<li class="round_one">bcdc61cbecf6137eec5c8ad4047fcdc36710e77e404b17378a33ae605920afe1</li>
+					<li class="round_one">f7f4c281ee20ab8d1b00734b92b60582b922211a7e470accd147c6d70c9714a3</li>
+						<ul>
+							<li class="round_two">b717aaa5ceb29408c29ad9bb3e76b9e38e6193f7d5e8a513af7e67144e77a2a4</li>
+						</ul>
+					<li class="round_one">b5f6e3b217fa7f6d58081b5d2a9a6607eebd889ed2c470191b2a45e0dcb98eb0</li>
+					<li class="round_one">4206f171f06913b1d40597edcaf75780559231fb504c49ba85a4a9ae949e8b95</li>
+						<ul>
+							<li class="round_two">15b11efcaa44c295d0717ba1c3cf5671a597730a1db9c1b86f8059f0813c2140</li>
+						</ul>
+					<li class="round_one">a1a6ad6ff321c76496a89b6a4eb9bcfb76b9e068b677d5c7d427c51ca08c273d</li>
+					<li class="round_one">89c82039452c14a9314b5834e5d2b9241b1fdccdb6e4f4f68e49015540faaf95</li>
+						<ul>
+							<li class="round_two">b93dd0cd83452310779b833aa78785e1c0232a738ffa9dc7004fff87dbb3c2ef</li>
+						</ul>
+					<li class="round_one">25c6a1f8c0b5be2bee1e8dd3478b4ec8f54bbc3742eaf90bfb5afd46cf217ad9</li>
+					<li class="round_one">57eef4da5edacc1247e71d3a93ed2ccaae69c302612e414f98abf8db0b671eae</li>
+						<ul>
+							<li class="round_two">9697afe915067eaf057285c5a2a2acd85b782251773b7f0bc9c09e93d9d66a06</li>
+						</ul>
+					<li class="round_one">8d30eb0f3e65b8d8a9f26f6f73fc5aafa5c0372f9bb38aa38dd4c9dd1933e090</li>
+					<li class="round_one">13e3167d46334600b59a5aa286dd02147ac33e64bfc2e188e1f0c0a442182584</li>
+						<ul>
+							<li class="round_two">f8fa3616bcaf585a70834fe005e9278995be624f4da711229a1c0d009123c411</li>
+						</ul>
+				</ul>
+				<h3>Round 2</h3>
+				<ul>
+					<li class="round_two">b717aaa5ceb29408c29ad9bb3e76b9e38e6193f7d5e8a513af7e67144e77a2a4</li>
+					<li class="round_two">15b11efcaa44c295d0717ba1c3cf5671a597730a1db9c1b86f8059f0813c2140</li>
+						<ul>
+							<li class="round_three">49f1038d5b508972a08520a6510ba6673e2d005a97ee766d0e80abc28ffeb6f1</li>
+						</ul>
+
+					<li class="round_two">b93dd0cd83452310779b833aa78785e1c0232a738ffa9dc7004fff87dbb3c2ef</li>
+					<li class="round_two">9697afe915067eaf057285c5a2a2acd85b782251773b7f0bc9c09e93d9d66a06</li>
+						<ul>
+							<li class="round_three">47188a2399ab7a2f03b1ec13fb90565aed092b3bd46895073eef11abc25fe18b</li>
+						</ul>
+
+					<li class="round_two">f8fa3616bcaf585a70834fe005e9278995be624f4da711229a1c0d009123c411(with itself)</li> 
+					<li class="round_two">f8fa3616bcaf585a70834fe005e9278995be624f4da711229a1c0d009123c411(with itself)</li>
+						<ul>
+							<li class="round_three">f72e6471cc51a3556a5cff6a11e49bf77c9cf8ea52e797adc6a54887b6448ce5</li>
+						</ul>
+				</ul>
+				<h3>Round 3</h3>
+				<ul>
+					<li class="round_three">49f1038d5b508972a08520a6510ba6673e2d005a97ee766d0e80abc28ffeb6f1</li>
+					<li class="round_three">47188a2399ab7a2f03b1ec13fb90565aed092b3bd46895073eef11abc25fe18b</li>
+						<ul>
+							<li class="round_four">ef1b0a05f99899ed905712577f2a7faa80ea8a72b3c401d7ee964e487b739d8d</li>
+						</ul>
+					<li class="round_three">f72e6471cc51a3556a5cff6a11e49bf77c9cf8ea52e797adc6a54887b6448ce5(with itself)</li>
+					<li class="round_three">f72e6471cc51a3556a5cff6a11e49bf77c9cf8ea52e797adc6a54887b6448ce5(with itself)</li>
+						<ul>
+							<li class="round_four">74fae1ec2293482a1822a2bc6c5999c61713d24cd123bc9f68a2e71f1b3327e8</li>
+						</ul>
+				</ul>
+				<h3>Round 4</h3>
+				<ul>
+					<li class="round_four">ef1b0a05f99899ed905712577f2a7faa80ea8a72b3c401d7ee964e487b739d8d</li>
+					<li class="round_four">74fae1ec2293482a1822a2bc6c5999c61713d24cd123bc9f68a2e71f1b3327e8</li>
+						<ul>
+							<li class="root">be0b136f2f3db38d4f55f1963f0acac506d637b3c27a4c42f3504836a4ec52b1(COMPUTED MERKLE ROOT)</li>
+						</ul>
+				</ul>
 				<br>
-				<form id="blockForm">
-					Please Enter Block Hash <br>
-					<input id="block" onkeypress=fetchOnEnter(this.id) type="text" name="blockNumber" size="64"><br>
-					<br>Please Enter Block Number (Height) 
-					<input id="height" onkeypress=fetchOnEnter(this.id) type="text" name="blockHeight" size="6"><br>
-				</form>
-				<br>
-				<button id="TxsBtn" type="button" onclick=fetchBlockByHash()> Get Block By Hash </button>
-				<button id="TxsBtn" type="button" onclick=fetchBlockByHeight()> Get Block by Height </button>
-				<div class="block_info">
-					<p id="info">The block id (hash) is:</p>
-					<p id="block_id"></p>
-					<p id="info">The block number is: <span id="block_num"></span></p>
-					<p id="info"># of Transactions is: <span id="block_size"></span></p>
-					<p id="info">The Merkle Root is:</p>
-					<p id="block_mrkl"></p>
-					<p id="info">The Transactions IDs (hashes) for this block are:</p>
-					<p id="block_txs"></p>
-				</div>
+				<a href="#top">
+					<span><i class="icon-arrow-up"></i>&nbsp;Go to Top</span>
+				</a>
 			</div>
 		</div>
 		<div class="footer">
