@@ -84,11 +84,11 @@
 					By clicking on the * simbol, we can get all the resulting hashes.
 				</p>
 				<img class="home_img mrkl"src="../imgs/checksum_info.jpg">
-				<p>
+				<p id="mrkl_explain">
 					If you go to the <a href="https://github.com/power-serge/blockchain_project/blob/master/blockchain.7z">repo</a> 
 					page, you can download this zip file and hash it. You should get the same results as shown on the image above.
 				</p>
-				<h3 id="mrkl_explain">Merkle Trees Explained</h3>
+				<h3 >Merkle Trees Explained</h3>
 				<p>
 					Now that you are familiar with hashing, let's look at how it fits in with merkle trees.
 				</p>
@@ -127,7 +127,7 @@
 				</p>
 				<p>
 					Let's see a real example.
-					Block 150000 in the Bitcoin blockchain has the following transactions hashes:
+					Block 150000 in the Bitcoin blockchain has the following transactions hashes (also known as IDs):
 					
 					<ul class="block150k">
 						<li>bcdc61cbecf6137eec5c8ad4047fcdc36710e77e404b17378a33ae605920afe1</li>
@@ -149,21 +149,21 @@
 					a unique fixed-length value that identifies the transaction with respect to the entire	blockchain.
 				</p>
 				<p>
-					Bitcoin's algorithm takes pairs of transactions and hashes them together to come up with a result.
-					If the number of transactions is odd at any given level of the tree, the transaction is hashed with itself.
+					Bitcoin's algorithm takes pairs of hash values and hashes them together to come up with a new hash value.
+					If the number of hash values is odd at any given level of the tree, the last hash is hashed with itself.
 					This simple process is repeated until reaching the top of the tree.
 					At that point, the last resulting hash is the <i>Merkle Root</i>.
 				</p>
 				<p>
-					Below is a break down of these process takes place.
+					Below is a break down of how the process takes place.
 				</p>
-				
 				<div class="tree">
 					<h3>Round 1</h3>
 					<p>
-						In the first round, the 10 transactions are paired up. The text in red represents the original transaction hash
-						and the text in blue represents the resulting hash value of hashing a pair of transactions.
-					</p>
+						In the first round, the given 10 transaction-hash values are paired up. 
+						The text in red represents the original transaction hash and the text in 
+						blue represents the resulting hash value of hashing a pair of transactions.
+						10 go in, 5 come out.
 					<ul>
 						<li class="round_one">bcdc61cbecf6137eec5c8ad4047fcdc36710e77e404b17378a33ae605920afe1</li>
 						<li class="round_one">f7f4c281ee20ab8d1b00734b92b60582b922211a7e470accd147c6d70c9714a3</li>
@@ -192,6 +192,11 @@
 							</ul>
 					</ul>
 					<h3>Round 2</h3>
+					<p>
+						In Round 2, the results from the previous round are paired up and hashed.
+						Because the numner of inputs is odd, the last hash is hashed with itself.
+						Blue is the color of the input hashes, and violet is the color of the outputs.
+						5 go in, 3 come out.
 					<ul>
 						<li class="round_two">b717aaa5ceb29408c29ad9bb3e76b9e38e6193f7d5e8a513af7e67144e77a2a4</li>
 						<li class="round_two">15b11efcaa44c295d0717ba1c3cf5671a597730a1db9c1b86f8059f0813c2140</li>
@@ -212,6 +217,10 @@
 							</ul>
 					</ul>
 					<h3>Round 3</h3>
+					<p>
+						In Round 3, the same process is repeated. The text in violet ones are the results from the previous round.
+						The text in black represents the resulting hashes. 3 in, 2 out.
+					</p>
 					<ul>
 						<li class="round_three">49f1038d5b508972a08520a6510ba6673e2d005a97ee766d0e80abc28ffeb6f1</li>
 						<li class="round_three">47188a2399ab7a2f03b1ec13fb90565aed092b3bd46895073eef11abc25fe18b</li>
@@ -225,6 +234,9 @@
 							</ul>
 					</ul>
 					<h3>Round 4</h3>
+					<p>
+						In the final round, only 2 go in and the resulting hash is the Merkle Root.
+					</p>
 					<ul>
 						<li class="round_four">ef1b0a05f99899ed905712577f2a7faa80ea8a72b3c401d7ee964e487b739d8d</li>
 						<li class="round_four">74fae1ec2293482a1822a2bc6c5999c61713d24cd123bc9f68a2e71f1b3327e8</li>
@@ -232,6 +244,12 @@
 								<li class="root hashpair">be0b136f2f3db38d4f55f1963f0acac506d637b3c27a4c42f3504836a4ec52b1(COMPUTED MERKLE ROOT)</li>
 							</ul>
 					</ul>
+					<p>
+						Now, you hopefully have a better understanding of how a merkle tree is build on the Bitcoin blockchain.
+						Check out the <a>repo</a> for the Python implementation and to look at the source code for the JavaScript.
+						Also, if you didn't know, you can look at the source code for this page by using the developer tools in Chrome or Firefox.
+						You can toggle developer tools by pressing <i>Ctrl+Shift+I</i>.
+					</p>
 				</div>
 				<br>
 				<a href="#top">
