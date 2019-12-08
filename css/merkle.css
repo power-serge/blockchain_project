@@ -55,11 +55,12 @@ li.results {
 	list-style-type: none;
 }
 
+
 .results::before {
   content: "\25B6";
-  color: black;
-  display: inline-block;
-  margin-right: 6px;
+  color: grey;
+  display: inline;
+  margin-right: 5px;
 }
   
 .tree ul, .tree li{
