@@ -71,7 +71,7 @@
 			<p>
 				The input is parsed into fixed blocks of 512 bits. each one of these blocks containing 64 words of 32 bits length.
 				The first sixteen words are made of the 32 bits each from the 512 bit message. The other 48 are obtained computing 
-				the algorithm shown below. where <i>W</i> is a word in the block and <i>i</i> is the specific word in the block.
+				the algorithm shown below. where <i>W</i> is a word in the block and <i>i</i> is the specific word in said block.
 				
 				
 			</p>
@@ -85,7 +85,7 @@
 			<h4>Initialze Registers</h4>
 			<p>
 				Eight registers are utilized a,b,c,d,e,f,g,h for storing initial hash values given by the first 32 bits of the fractional 
-				part of the square root of the first 8 prime numbers. These values are shown below.
+				part of the square root of the first 8 prime numbers. These values are already prestablished by the algorithm. The values are shown below.
 				
 			</p>
 			<img src="../imgs/8_initial_hashing_ values.png">
@@ -97,7 +97,7 @@
 			</p>
 			<h4> Apply compression function </h4>
 			<p>
-				The compression function utilizes the 8 initial hashing values and the 64 constant values shown below as input.
+				The compression function utilizes the 8 initial hashing values and the 64 constant which are prestablished by the algorithm as input. The values are shown below.
 			</p>
 			<img src="../imgs/constants.jpg" width="500">
 			<p>
