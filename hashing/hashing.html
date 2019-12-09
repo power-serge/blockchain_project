@@ -23,7 +23,7 @@
             <h2>Sections</h2>
 			<h3><a href="#"> Introduction</a></a></h3>
 			<h3><a href="#"> SHA-256</a></a></h3>
-			<h3><a href="#"> Section Three</a></a></h3>
+			<h3><a href="#"> Algorithmic process</a></a></h3>
          </div>
          <div class="main">
 			<h2>HASHING</h2>
@@ -42,9 +42,18 @@
 			<p>
 				The SHA-256 belongs to a family of hashing functions known as the SHA-2 family. There are mutiple other hashing 
 				functions under the SHA2 family(i.e SHA-224, SHA-512, SHA-384). The numeric suffix of each of these algorithms dictates
-				the bit length of the hash value that is outputed, however they all follow the same algorithmic structure.
+				the bit length of the hash value that is outputed, and each differs slightly in the way the hash value is create, however
+				the basis of structure in the algorithms remains very much identical.
 			</p>
-			
+			<h3>Algorithmic Process</h3>
+			<p>
+				In order to output a hash value the input is put through several steps to reach said output.
+				<br>
+				Step 1: Padding.
+				Step 2: break input into block sizes of 512 bits.
+				Step 3: Initialize registers.
+				Step 4: Apply compression function.
+			</p>			
          </div>
       </div>
       <div class="footer">
