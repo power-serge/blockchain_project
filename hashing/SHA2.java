@@ -67,15 +67,5 @@ public class SHA2 {
 				System.out.println("error while writing to file");
 			}
 			
-			
-//		System.out.println("SHA2-256 of file2:" + getFileChecksum(SHA2Digest, file2));
-//			long stopTime2 = System.currentTimeMillis();
-//			long runTime2 = stopTime2 - startTime;
-//			System.out.println("Run time " + runTime2);
-//			
-//			System.out.println("SHA2-256 of file3:" + getFileChecksum(SHA2Digest, file3));
-//			long stopTime3 = System.currentTimeMillis();
-//			long runTime3 = stopTime3 - startTime;
-//			System.out.println("Run time " + runTime3);
 			}
 }
