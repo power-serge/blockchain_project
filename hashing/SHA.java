@@ -72,15 +72,5 @@ public class SHA {
 			System.out.println("error while writing to file");
 		}
 		
-		
-//		System.out.println("SHA3-256 of file2:" + getFileChecksum(digestSHA3, file2));
-//		long stopTime2 = System.currentTimeMillis();
-//		long runTime2 = stopTime2 - startTime;
-//		System.out.println("Run time " + runTime2);
-//		
-//		System.out.println("SHA3-256 of file3:" + getFileChecksum(digestSHA3, file3));
-//		long stopTime3 = System.currentTimeMillis();
-//		long runTime3 = stopTime3 - startTime;
-//		System.out.println("Run time " + runTime3);
 	}
 }
