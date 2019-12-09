@@ -20,10 +20,9 @@
       </div>
       <div class="row">
          <div class="side">
-            <h2>Sections</h2>
-			<h3><a href="#"> Introduction</a></a></h3>
-			<h3><a href="#"> SHA-256</a></a></h3>
-			<h3><a href="#"> Algorithmic process</a></a></h3>
+            <h2>Resources</h2>
+			<h3><a href="https://www.youtube.com/watch?v=mbekM2ErHfM" target="new">Compression algorithm in depth video</a> (video)</h3>
+			<h3><a href="https://www.researchgate.net/file.PostFileLoader.html?id=534b393ad3df3e04508b45ad&assetKey=AS%3A273514844622849%401442222429260#:~:targetText=SHA%2D256%20(secure%20hash%20algorithm,each%20block%20requiring%2064%20rounds.&targetText=Each%20of%20them%20operates%20on%2032%2Dbit%20words." target="new">Article on SHA 265 algorithm </a></h3>
          </div>
          <div class="main">
 			<h2>HASHING</h2>
@@ -31,16 +30,16 @@
             <p>
 				A cryptographic hashing function takes data of arbituray length <br>
 				as input and produces an output of a fixed length known as a message digest or hash value.
-				Bitcoin utilzes a specific flavor of cryptographic hashing function known as the SHA-256.	
+				Bitcoin utilizes a specific flavor of cryptographic hashing function known as the SHA-256.	
 			</p>
 			<h3>SHA-256</h3>
 			<p>	
-				The SHA-256 is considered a one way hashing function. The ouput that is produced can not be used to 
+				The SHA-256 is considered a one way hashing function. The output that is produced can not be used to 
 				reverse the algorithm and aquire the input. This concept of SHA-256 being a one way function aids 
 				in the security of bitcoin transactions.
 			</p>
 			<p>
-				The SHA-256 belongs to a family of hashing functions known as the SHA-2 family. There are mutiple other hashing 
+				The SHA-256 belongs to a family of hashing functions known as the SHA-2 family. There are multiple other hashing 
 				functions under the SHA2 family(i.e SHA-224, SHA-512, SHA-384). The numeric suffix of each of these algorithms dictates
 				the bit length of the hash value that is outputed, and each differs slightly in the way the hash value is create, however
 				the basis of structure in the algorithms remains very much identical.
@@ -70,7 +69,7 @@
 			<h4>Breaking</h4>
 			<p>
 				The input is parsed into fixed blocks of 512 bits. each one of these blocks containing 64 words of 32 bits length.
-				. The first sixteen words are made of the 32 bits each from the 512 bit message. The other 48 are obtained computing 
+				The first sixteen words are made of the 32 bits each from the 512 bit message. The other 48 are obtained computing 
 				the algorithm shown below. where <i>W</i> is a word in the block and <i>i</i> is the specific word in the block.
 				
 				
@@ -85,7 +84,7 @@
 			<h4>Initialze Registers</h4>
 			<p>
 				Eight registers are utilized a,b,c,d,e,f,g,h for storing initial hash values given by the first 32 bits of the fractional 
-				part of the aqure root of the first 8 prime numbers. These values are shown below.
+				part of the square root of the first 8 prime numbers. These values are shown below.
 				
 			</p>
 			<img src="../imgs/8_initial_hashing_ values.png">
