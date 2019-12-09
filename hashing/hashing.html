@@ -49,11 +49,24 @@
 			<p>
 				In order to output a hash value the input is put through several steps to reach said output.
 				<br>
-				Step 1: Padding.
-				Step 2: break input into block sizes of 512 bits.
-				Step 3: Initialize registers.
-				Step 4: Apply compression function.
-			</p>			
+				Step 1: Padding.<br>
+				Step 2: break input into block sizes of 512 bits.<br>
+				Step 3: Initialize registers.<br>
+				Step 4: Apply compression function. <br>
+			</p>
+			<h4>Padding</h4>
+			<p>
+				Because the data recieved as input may not equal to a multiple of 512 bits for block creation, 
+				padding is used to fill the gab of missing bits so the total bits will be a mutiple of 512. This also helps secure
+				the blocks from data manipulation.
+				
+				padding appends a bit '1' to the end of the input then <i>x</i> amount of zero bits, and is done so the 
+				length of bits equal 448 mod 512. This process is always performed even when input length is already 448 mod 512.
+				A 64 bit representation of the length of the input is also appended making the length a multiple of 512. 
+			</p>
+			<p>
+			</p>
+			
          </div>
       </div>
       <div class="footer">
