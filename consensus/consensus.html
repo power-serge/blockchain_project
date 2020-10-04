@@ -6,327 +6,312 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="../css/styles.css">
 		<link rel="stylesheet" href="../css/consensus.css">
-		<!--------------------------------------- Added for hashing function ------------------------------------------>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
-			integrity="sha256-cVdRFpfbdE04SloqhkavI/PJBWCr+TuyQP3WkLKaiYo=" 
-			crossorigin="anonymous"></script>
+		<!-- Added for hashing function -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js" integrity="sha256-cVdRFpfbdE04SloqhkavI/PJBWCr+TuyQP3WkLKaiYo=" crossorigin="anonymous"></script>
 		<script src="../js/blockFunctions.js"></script>
-		<!---------------------------------- End of hashing function script ------------------------------------------->
+		<!-- End of hashing function script -->
 	</head>
 	<body>
-		<!------------------------------ Alert box customation begins ---------------------------->
+		<!-- Alert box customation begins -->
 		<script>
-			function CustomAlert(){
-				this.render = function(dialog){
+			function CustomAlert() {
+				this.render = function(dialog) {
 					var winW = window.innerWidth;
 					var winH = window.innerHeight;
 					var dialogoverlay = document.getElementById('dialogoverlay');
 					var dialogbox = document.getElementById('dialogbox');
 					dialogoverlay.style.display = "block";
-					dialogoverlay.style.height = winH+"px";
-					dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+					dialogoverlay.style.height = winH + "px";
+					dialogbox.style.left = (winW / 2) - (550 * .5) + "px";
 					dialogbox.style.top = "100px";
 					dialogbox.style.display = "block";
 					document.getElementById('dialogboxhead').innerHTML = " Listen up " + name + ". Important information is in you\'re presence!";
 					document.getElementById('dialogboxbody').innerHTML = dialog;
 					document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()">OK</button>';
 				}
-			   this.ok = function(){
-				  document.getElementById('dialogbox').style.display = "none";
-				  document.getElementById('dialogoverlay').style.display = "none";
-			   }
+				this.ok = function() {
+					document.getElementById('dialogbox').style.display = "none";
+					document.getElementById('dialogoverlay').style.display = "none";
+				}
 			}
 			var Alert = new CustomAlert();
 		</script>
-		</head>
-		<body>
-			<div id="dialogoverlay"></div>
-			<div id="dialogbox">
-				<div>
-					<div id="dialogboxhead"></div>
-					<div id="dialogboxbody"></div>
-					<div id="dialogboxfoot"></div>
-				</div>
+		<div id="dialogoverlay"></div>
+		<div id="dialogbox">
+			<div>
+				<div id="dialogboxhead"></div>
+				<div id="dialogboxbody"></div>
+				<div id="dialogboxfoot"></div>
 			</div>
-			<!--		<button onclick="alert('You look very pretty today.')">Default Alert</button>
+		</div>
+		<!--<button onclick="alert('You look very pretty today.')">Default Alert</button>
 				<button onclick="Alert.render('You look very pretty today.')">Become a miner</button>
-				<button onclick="Alert.render('And you also smell very nice.')">Custom Alert 2</button>		 --> 
-			<!--------------------------------------------- Alert box customation ends ---------------------------------------------------------->
-			<!---------------------------------------------- BG code Begins -------------------------------------------->
-			<div class="header">
-				<h1>Blockchain</h1>
-				<p>An <b>Analytical-Educational</b> approach </p>
+				<button onclick="Alert.render('And you also smell very nice.')">Custom Alert 2</button> -->
+		<!-- Alert box customation ends -->
+		<!-- BG code Begins -->
+		<div class="header">
+			<h1>Blockchain</h1>
+			<p>
+				An <b>Analytical-Educational</b>
+				approach 
+			</p>
+		</div>
+		<div class="navbar">
+			<a href="../index.html">Home</a>
+			<a href="../merkle_tree/merkle.html">Merkle Trees</a>
+			<a href="../hashing/hashing.html">Hashing</a>
+			<a href="#" class="active">Consensus</a>
+			<a href="../merkle_tree/blocks.html" class="right">Block Operations</a>
+		</div>
+		<div class="row">
+			<div class="side">
+				<h2>Sections</h2>
+				<h3>
+					<a href="#section1">Consensus Interactive Walkthrough</a>
+				</h3>
+				<h3>
+					<a href="#section2">Resources</a>
+				</h3>
+				<h3>
+					<a href="#section3">About me</a>
+				</h3>
 			</div>
-			<div class="navbar">
-				<a href="../index.html">Home</a>
-				<a href="../merkle_tree/merkle.html">Merkle Trees</a>
-				<a href="../hashing/hashing.html">Hashing</a>
-				<a href="#" class="active">Consensus</a>
-				<a href="../merkle_tree/blocks.html" class="right">Block Operations</a>
-			</div>
-			<div class="row">
-				<div class="side">
-					<h2>Sections</h2>
-					<h3><a href="#section1"> Consensus Interactive Walkthrough</a></a></h3>
-					<h3><a href="#section2"> Resources</a></a></h3>
-					<h3><a href="#section3"> About me</a></a></h3>
-				</div>
-				<div class="main">
-					<h2 id = "section1">CONSENSUS</h2>
-					
-				
-				</p>				
-				<img src="../imgs/mining.jpg" width="500" height="250">				
-				<p>
-						<!--https://www.youtube.com/watch?v=WvvwtaXTqM0-->
-
-					<button class = "do" onclick="minerName()">Become a bitcoin miner</button>
-					<p id="minerName"></p>
-					<p id="minernameMessage"></p>
-					<p id="minerGoodbye"></p>
-					<p id="name"></p>
-					<br>
-					<br>
-					<!-- Example of html button without Javascript functions:	   <button onclick="alert('Create you\'re mining network')">Initiate Default Alert</button> -->						  
-					<button class = "questions" onclick="Alert.render('So, we know that Bitcoin is decentralized. This means that no single authority can make decisions for all parties. Instead the network is in control. This means that everytime a transaction is made, a copy is sent to every node in the network. These nodes represent an individual in the bitcoin network. Now, the mining network is special! The mining nodes are unique because they represent individuals who are actually mining bitcoin. miners are in a sense a subset of all nodes who make up the network. Lets use the good ol class room as an analogy to better explain. The class room represents the network. The students are nodes who represent users spending and exchanging bitcoin. The teacher represents the miner.')">Mining Network?</button> 
-					<br> 
-					<br>
-					
-				
-				</p>				
-				<img src="../imgs/miningnetwork.PNG" width="500" height="250">				
-				<p>
-					<button class = "do" onclick="myMiners()">Create your mining network</button>		  
-					<p id="miners"></p>
-					<p id="miningMessage"></p>
-					<br>
-					<br>
-					<button class = "questions" onclick="Alert.render('Since bitcoin only allows a block to be added on average every 10 minutes, not all transactions can be verified instantly. How it works is, when a transaction is made it goes into a pool. Once a block is added, miners then go to the pool and pick out the next set of transactions they would like to add to a block. Its important to note that bitcoin has a data cap on its blocks, therefore a miner cannot select thousands of transactions. So, this leads miners to being very strategic in selecting their blocks. One good way to make sure your block is verified quickly is to leave a nice juicy tip for your miner. This certaintly gives some incentive to the miner. This is known as the miners tip. ')">Transactions?</button>		 
-					<br>
-					<br>
-					
-				</p>				
-				<img src="../imgs/transactions1.PNG" width="500" height="250">				
-				<p>
-						<!--https://www.youtube.com/watch?v=Wk8NCCrhO0I--> 
-
-					<button class = "do" onclick="myTransactions()">Pick your transactions</button>
-					<p id="transactions"></p>
-					<p id="transactionsMessage"></p>
-					<br>
-					<br>
-				
-					<button class = "questions" onclick="Alert.render('A block header is an 80-byte long string. Its composition is as follows: A 4-byte long Bitcoin version number, 32-byte previous block hash, 32-byte long Merkle root, 4-byte long timestamp of the block, 4-byte long difficulty target for the block, and the 4-byte long nonce used by miners. The blocks hash, commenly referred to as the block id is the result of hashing the block header. The block hash is typically displayed as a 64 bit hexadecimal number leading with a bunch. So in essence, the block hash contains the entire history of bitcoin')">Block Hash?</button>
-					<br>
-					<br>
-				</p>				
-				<img src="../imgs/blockhash.PNG" width="500" height="250">				
-				<p>
-					<!--https://www.youtube.com/watch?v=SSo_EIwHSd4-->
-					<button class = "questions" onclick="blockHeader()">Grab last block's hash</button>
-					<p id="blockheaders"></p>
-					<p id="blockheadersMessage"></p>
-					<br>
-						
-				</p>				
-				<img src="../imgs/hashing.PNG" width="500" height="250">				
-				<p>
-						<!--https://www.youtube.com/watch?v=Wk8NCCrhO0I--> 	   
-					<button class = "questions" onclick="Alert.render('So, you\'re probably asking yourself, what is a hash? A hash, commonly referred to as hashing, is a mathematical function that takes an input value and turns it into a compressed numerical value. This value is known as the hash. Imagine giving a hash function the entire script of a movie. The hash function will take this text of a certain legnth/value and output a hash of the script that is now represented as a compressed numerical value. The sha256 hashing function used by bitcoin for instance, provides an output in a 64 bit hexadecimal format.')">Sha256-Hash?</button>
-					<br>
-					<br>
-					<br>
-
-				</p>				
-				<img src="../imgs/target.PNG" width="700" height="250">				
-				<p>
-					<!--https://www.youtube.com/watch?v=bBC-nXj3Ng4-->
-
-					<button class = "questions" onclick="Alert.render('The block\'s difficulty or more commonly referred to as the \'Target Hash\' is adjusted by Bitcoin every 2016 blocks. The purpose of changing the target is to keep the average time it takes for miner\'s to add a block at the 10 minute mark. The creator of Bitcoin, \'Satoshi Nakamoto\' chose 10 minutes for the sole purpose that he felt 10 minutes will be a sufficient enough time for all parts of the world with a network connection to recieve the information of the current added block. So, how does the target work? Well the target refers directly to the possibilites that the Sha256 algorithm provides. It\'s output value possibilities are roughly around 2^256. This number is astronomical and very difficult for computers to keep on concatanating values to the end of a string until they can find a specific nonce (read more about nonce next button). This is where the target comes in. If blocks are being mined on average at a pace faster than 10 minutes, then after 2016 blocks the target will be lowered. The exact opposite will occur if miners mine blocks at an average higher than 10 minutes. For example, Bitcoin sets the block target at 20. This means that the expectecd value from the blocks hash must be a lower value than 2^(256 - target) = 2^(256 - 20) = 2^236. If after 2016 blocks miners are mining blocks to fast, the target is lowered meaning the value expected is higher. 2^(256 - (target < 20) will be more difficult to produce, thus theoretically slowing down the time it takes miners to mine a block in order to acheieve the desired 10 minute average block time. The exact opposite will occur with blocks being mined to slow. The target will increase, meaning 2^(256 - target > 20), thus reducing the complexity of blocks being mined and increase the desired time in order to fall within that 10 minute block window. ). ')">Target?</button>
-					<br>
-					<br>
-					<br>
-					
-				</p>				
-				<img src="../imgs/nonce.PNG" width="700" height="250">				
-				<p>
-					<!--https://www.youtube.com/watch?v=3EUAcxhuoU4-->
-					
-					<button class = "questions" onclick="Alert.render('The nonce is undoubtably one of the most important aspects of Bitcoin\'s proof of work algorithm. We spoke about how hashing algorithms output a value. The Sha256 for example hashes and outputs a 256 bit numerical value that is represented as a 64 bit hexadecimal. If any changes are made to the original input\'s string, the hashing function will produce a completely different result. The nonce is a special circumstance. The nonce is an arbitrary number that is constantly modified in order to produce a hash that is under Bitcoin\'s desired target. This is why a block\'s hash/id begins with a certain amount of zero\'s. Typically one can identify the block\'s difficulty, simply by counting the leading zero\'s. In other words, lets say I want to hash your name. Let\'s say, your name hashes to a hexadecimal value of aAaAaAaA... Now, let\'s add a number to the end of your name. Now, if we hash this it should give us a completely different output. If however, the output begins with a zero, then we can essentially continue adding letters or numbers to the end of that zero, until we get a value that gives us a second zero and so forth. We continue this process until we have a value that satisfies bitcoin\'s target. That is, we continue this process until we get 1,2,3,4,5,... leading zero\'s.')">Nonce?</button>
-					<br>
-					<br>
-					<br>
-					Okay Miner! We've made it this far! The hash function coming up 
-					<br>
-					already has the previous block's hash and our merkle root already
-					<br>
-					fired up.  All we need now is to find the nonce. Keep adding 
-					<br>
-					numbers or letters until you get a value under Bitcoin's target.
-					<br>
-					<br>
-					Let's pull up Bitcoin's latest target. 
-					<br>
-					<br>
-					<button class = "do" onclick="Alert.render('Calculating! Hold your horses! Uhhhhhhh. Got it! Current target is 18. This means you need an output that leads with 18 zero\'s. Go!!!!!')">Bitcoin's Target</button>
-					<br>
-					<br>
-					<br>
-					Add as many letters and or numbers until you recieve desired output
-					<br>
-					(18 leading zero's). 
-					<br>
-					<!------------------------------------------------------------------- HASH -------------------------------------------------------->
-					<input id="hash_it" type="text">
-					<button class = "do" onclick="document.getElementById('hash_one').innerHTML = hashOne(document.getElementById('hash_it').value)">Hash It!</button>
-					<p id="hash_one"></p>
-					
-					
-					Keep track of how many hash attempts it takes to find the nonce. CLICK BELOW.
-					<br>
-					<br>
-
-					<button class = "do" onclick="myFunction()">Hash attempt</button>					
-					<p id="clicks"></p>
-					<p id="finalNonce"></p>
-					
-					<input class = "text"> 
-					<button class = "do" onclick="Alert.render('00000000000000000d4735e3a265e16eee03f59718b9b5d03d4735e3a2' + '<br/> <br/> <br/> It works! I\'m truly sorry we weren\'t able to get to it first but unfortunately, that is part of the mining process. Everyone has roughly 10 minutes to work as fast as they possibly can and being beat is inevitable. The good news is we live to fight another day! Let\'s get back to work and repeat this whole process! You are now an experienced miner! I\'m expecting a lot out of you.')">Hash nonce</button>
-
-					
-					<!---------------------------------------------------------------- Miner Name ----------------------------------------------------->
-					
-						<br>
-						<br>
-						<br>
-					<button class = "do" type = "submit" onclick= "window.location.reload();"">Restart mining process</button>
-
-					<a href="#top">
-						<span><i class="icon-arrow-up"></i>&nbsp;Go to Top</span>
-						</a>
-							<br>
-							<br>
-							<br>
-							<br>
-					<h2 id = "section2">RESOURCES</h2>					
-								
-							<h3><a href="https://www.youtube.com/watch?v=l9jOJk30eQs" target="new">How bitcoin works in 5 minutes</a> (video)</h3>
-							<h3><a href="https://www.youtube.com/watch?v=Gc2en3nHxA4" target="new">What is Bitcoin? </a> (video)</h3>
-							<h3><a href="https://www.youtube.com/watch?v=bBC-nXj3Ng4&t=225s" target="new">But how does bitcoin actually work?</a> (video)</h3>
-							<h3><a href="https://www.youtube.com/watch?v=SSo_EIwHSd4&t=138s" target="new">How does a blockchain work - Simply Explained</a> (video)</h3>
-							<h3><a href="https://www.youtube.com/watch?v=s4g1XFU8Gto&t=123s" target="new">Bitcoin explained and made simple </a> (video)</h3>
-							<h3><a href="https://bitcoin.org/en/how-it-works" target="new">Bitcoin.org</a></h3>
-							<h3><a href="https://www.nerdwallet.com/blog/investing/what-is-bitcoin/" target="new">What Is Bitcoin, and How Does It Work?</a></h3>
-							<h3><a href="https://medium.com/loom-network/understanding-blockchain-fundamentals-part-2-proof-of-work-proof-of-stake-b6ae907c7edb" target="new">Understanding Blockchain Fundamentals, Part 2: Proof of Work & Proof of Stake</a></h3>
-							<h3><a href="https://cryptoresearch.report/crypto-research/consensus-mechanisms/" target="new">Consensus Mechanisms</a></h3>
-							<h3><a href="https://cointelegraph.com/explained/proof-of-work-explained" target="new">Proof-of-Work, Explained</a></h3>
-								<br>
-						<a href="#top">
-							<span><i class="icon-arrow-up"></i>&nbsp;Go to Top</span>
-						</a>
-								<br>
-								<br>
-
-					<h2 id = "section3">About me</h2>				
-					
-					</p>				
-				<img src="../imgs/BG_Photo.jpg" width="300" height="350">				
+			<div class="main">
+				<h2 id="section1">CONSENSUS</h2>
+				<img src="../imgs/mining.jpg" width="500" height="250">
+				<!--https://www.youtube.com/watch?v=WvvwtaXTqM0-->
+				<br>
+				<br>
+				<button class="do" onclick="minerName()">Become a bitcoin miner</button>
+				<p id="minerName"></p>
+				<p id="minernameMessage"></p>
+				<p id="minerGoodbye"></p>
+				<p id="name"></p>
+				<br>
+				<br>
+				<!-- Example of html button without Javascript functions:	   <button onclick="alert('Create you\'re mining network')">Initiate Default Alert</button> -->
+				<button class="questions" onclick="Alert.render('So, we know that Bitcoin is decentralized. This means that no single authority can make decisions for all parties. Instead the network is in control. This means that everytime a transaction is made, a copy is sent to every node in the network. These nodes represent an individual in the bitcoin network. Now, the mining network is special! The mining nodes are unique because they represent individuals who are actually mining bitcoin. miners are in a sense a subset of all nodes who make up the network. Lets use the good ol class room as an analogy to better explain. The class room represents the network. The students are nodes who represent users spending and exchanging bitcoin. The teacher represents the miner.')">Mining Network?</button>
+				<br>
+				<br>
+				<img src="../imgs/miningnetwork.PNG" width="500" height="250">
+				<br>
+				<br>
+				<button class="do" onclick="myMiners()">Create your mining network</button>
+				<p id="miners"></p>
+				<p id="miningMessage"></p>
+				<br>
+				<br>
+				<button class="questions" onclick="Alert.render('Since bitcoin only allows a block to be added on average every 10 minutes, not all transactions can be verified instantly. How it works is, when a transaction is made it goes into a pool. Once a block is added, miners then go to the pool and pick out the next set of transactions they would like to add to a block. Its important to note that bitcoin has a data cap on its blocks, therefore a miner cannot select thousands of transactions. So, this leads miners to being very strategic in selecting their blocks. One good way to make sure your block is verified quickly is to leave a nice juicy tip for your miner. This certaintly gives some incentive to the miner. This is known as the miners tip. ')">Transactions?</button>
+				<br>
+				<br>
+				<img src="../imgs/transactions1.PNG" width="500" height="250">
+				<!--https://www.youtube.com/watch?v=Wk8NCCrhO0I-->
+				<br>
+				<br>
+				<button class="do" onclick="myTransactions()">Pick your transactions</button>
+				<p id="transactions"></p>
+				<p id="transactionsMessage"></p>
+				<br>
+				<br>
+				<button class="questions" onclick="Alert.render('A block header is an 80-byte long string. Its composition is as follows: A 4-byte long Bitcoin version number, 32-byte previous block hash, 32-byte long Merkle root, 4-byte long timestamp of the block, 4-byte long difficulty target for the block, and the 4-byte long nonce used by miners. The blocks hash, commenly referred to as the block id is the result of hashing the block header. The block hash is typically displayed as a 64 bit hexadecimal number leading with a bunch. So in essence, the block hash contains the entire history of bitcoin')">Block Hash?</button>
+				<br>
+				<br>
+				<img src="../imgs/blockhash.PNG" width="500" height="250">
+				<!--https://www.youtube.com/watch?v=SSo_EIwHSd4-->
+				<br>
+				<br>
+				<button class="questions" onclick="blockHeader()">Grab last block's hash</button>
+				<p id="blockheaders"></p>
+				<p id="blockheadersMessage"></p>
+				<br>
+				<br>
+				<img src="../imgs/hashing.PNG" width="500" height="250">
+				<!--https://www.youtube.com/watch?v=Wk8NCCrhO0I-->
+				<br>
+				<br>
+				<br>
+				<button class="questions" onclick="Alert.render('So, you\'re probably asking yourself, what is a hash? A hash, commonly referred to as hashing, is a mathematical function that takes an input value and turns it into a compressed numerical value. This value is known as the hash. Imagine giving a hash function the entire script of a movie. The hash function will take this text of a certain legnth/value and output a hash of the script that is now represented as a compressed numerical value. The sha256 hashing function used by bitcoin for instance, provides an output in a 64 bit hexadecimal format.')">Sha256-Hash?</button>
+				<br>
+				<br>
+				<img src="../imgs/target.PNG" width="700" height="250">
+				<!--https://www.youtube.com/watch?v=bBC-nXj3Ng4-->
+				<br>
+				<br>
+				<br>
+				<button class="questions" onclick="Alert.render('The block\'s difficulty or more commonly referred to as the \'Target Hash\' is adjusted by Bitcoin every 2016 blocks. The purpose of changing the target is to keep the average time it takes for miner\'s to add a block at the 10 minute mark. The creator of Bitcoin, \'Satoshi Nakamoto\' chose 10 minutes for the sole purpose that he felt 10 minutes will be a sufficient enough time for all parts of the world with a network connection to recieve the information of the current added block. So, how does the target work? Well the target refers directly to the possibilites that the Sha256 algorithm provides. It\'s output value possibilities are roughly around 2^256. This number is astronomical and very difficult for computers to keep on concatanating values to the end of a string until they can find a specific nonce (read more about nonce next button). This is where the target comes in. If blocks are being mined on average at a pace faster than 10 minutes, then after 2016 blocks the target will be lowered. The exact opposite will occur if miners mine blocks at an average higher than 10 minutes. For example, Bitcoin sets the block target at 20. This means that the expectecd value from the blocks hash must be a lower value than 2^(256 - target) = 2^(256 - 20) = 2^236. If after 2016 blocks miners are mining blocks to fast, the target is lowered meaning the value expected is higher. 2^(256 - (target < 20) will be more difficult to produce, thus theoretically slowing down the time it takes miners to mine a block in order to acheieve the desired 10 minute average block time. The exact opposite will occur with blocks being mined to slow. The target will increase, meaning 2^(256 - target > 20), thus reducing the complexity of blocks being mined and increase the desired time in order to fall within that 10 minute block window. ). ')">Target?</button>
+				<br>
+				<br>
+				<img src="../imgs/nonce.PNG" width="700" height="250">
+				<!--https://www.youtube.com/watch?v=3EUAcxhuoU4-->
+				<br>
+				<br>
+				<br>
+				<button class="questions" onclick="Alert.render('The nonce is undoubtably one of the most important aspects of Bitcoin\'s proof of work algorithm. We spoke about how hashing algorithms output a value. The Sha256 for example hashes and outputs a 256 bit numerical value that is represented as a 64 bit hexadecimal. If any changes are made to the original input\'s string, the hashing function will produce a completely different result. The nonce is a special circumstance. The nonce is an arbitrary number that is constantly modified in order to produce a hash that is under Bitcoin\'s desired target. This is why a block\'s hash/id begins with a certain amount of zero\'s. Typically one can identify the block\'s difficulty, simply by counting the leading zero\'s. In other words, lets say I want to hash your name. Let\'s say, your name hashes to a hexadecimal value of aAaAaAaA... Now, let\'s add a number to the end of your name. Now, if we hash this it should give us a completely different output. If however, the output begins with a zero, then we can essentially continue adding letters or numbers to the end of that zero, until we get a value that gives us a second zero and so forth. We continue this process until we have a value that satisfies bitcoin\'s target. That is, we continue this process until we get 1,2,3,4,5,... leading zero\'s.')">Nonce?</button>
+				<br>
+				<br>
+				Okay Miner! We've made it this far! The hash function coming up
+				<br>
+				already has the previous block's hash and our merkle root already
+				<br>
+				fired up.  All we need now is to find the nonce. Keep adding
+				<br>
+				numbers or letters until you get a value under Bitcoin's target.
+				<br>
+				<br>
+				Let's pull up Bitcoin's latest target.
+				<br>
+				<br>
+				<button class="do" onclick="Alert.render('Calculating! Hold your horses! Uhhhhhhh. Got it! Current target is 18. This means you need an output that leads with 18 zero\'s. Go!!!!!')">Bitcoin's Target</button>
+				<br>
+				<br>
+				Add as many letters and or numbers until you recieve desired output
+				<br>
+				(18 leading zero's).
+				<br>
+				<!-- HASH -->
+				<input id="hash_it" type="text">
+				<button class="do" onclick="document.getElementById('hash_one').innerHTML = hashOne(document.getElementById('hash_it').value)">Hash It!</button>
+				<p id="hash_one"></p>
+				Keep track of how many hash attempts it takes to find the nonce. CLICK BELOW.
+				<br>
+				<br>
+				<button class="do" onclick="myFunction()">Hash attempt</button>
+				<p id="clicks"></p>
+				<p id="finalNonce"></p>
+				<input class="text">
+				<button class="do" onclick="Alert.render('00000000000000000d4735e3a265e16eee03f59718b9b5d03d4735e3a2' + '<br/> <br/> <br/> It works! I\'m truly sorry we weren\'t able to get to it first but unfortunately, that is part of the mining process. Everyone has roughly 10 minutes to work as fast as they possibly can and being beat is inevitable. The good news is we live to fight another day! Let\'s get back to work and repeat this whole process! You are now an experienced miner! I\'m expecting a lot out of you.')">Hash nonce</button>
+				<!-- Miner Name -->
+				<br>
+				<br>
+				<br>
+				<button class="do" type="submit" onclick="window.location.reload();">Restart mining process</button>
+				<a href="#top" class="icon-arrow-up">&nbsp;&nbsp;Go to Top</a>
+				<br>
+				<br>
+				<h2 id="section2">RESOURCES</h2>
+				<h3>
+					<a href="https://www.youtube.com/watch?v=l9jOJk30eQs" target="new">How bitcoin works in 5 minutes</a>
+					(video)
+				</h3>
+				<h3>
+					<a href="https://www.youtube.com/watch?v=Gc2en3nHxA4" target="new">What is Bitcoin? </a>
+					(video)
+				</h3>
+				<h3>
+					<a href="https://www.youtube.com/watch?v=bBC-nXj3Ng4&t=225s" target="new">But how does bitcoin actually work?</a>
+					(video)
+				</h3>
+				<h3>
+					<a href="https://www.youtube.com/watch?v=SSo_EIwHSd4&t=138s" target="new">How does a blockchain work - Simply Explained</a>
+					(video)
+				</h3>
+				<h3>
+					<a href="https://www.youtube.com/watch?v=s4g1XFU8Gto&t=123s" target="new">Bitcoin explained and made simple </a>
+					(video)
+				</h3>
+				<h3>
+					<a href="https://bitcoin.org/en/how-it-works" target="new">Bitcoin.org</a>
+				</h3>
+				<h3>
+					<a href="https://www.nerdwallet.com/blog/investing/what-is-bitcoin/" target="new">What Is Bitcoin, and How Does It Work?</a>
+				</h3>
+				<h3>
+					<a href="https://medium.com/loom-network/understanding-blockchain-fundamentals-part-2-proof-of-work-proof-of-stake-b6ae907c7edb" target="new">Understanding Blockchain Fundamentals, Part 2: Proof of Work &Proof of Stake</a>
+				</h3>
+				<h3>
+					<a href="https://cryptoresearch.report/crypto-research/consensus-mechanisms/" target="new">Consensus Mechanisms</a>
+				</h3>
+				<h3>
+					<a href="https://cointelegraph.com/explained/proof-of-work-explained" target="new">Proof-of-Work, Explained</a>
+				</h3>
+				<br>
+				<a href="#top" class="icon-arrow-up">Go to Top</a>
+				<br>
+				<br>
+				<h2 id="section3">About me</h2>
+				<img src="../imgs/BG_Photo.jpg" width="300" height="350">
 				<p>
 					<br>
-				
+					Brian Gonzalez began his education at a small community college in Manchester, CT.
+					He obtained his associates degree in General Studies before transferring to a
+					four year institution.
+					<br>
+					<br>
+					Brian Gonzalez is currently attending Eastern Connecticut State University.
+					He is a double major studying towards a B.S in Computer Science and a B.S in
+					Mathematics.
+					<br>
+					<br>
+					Hobbies include reading, creative writing, swimming, and baseball. Brian is
+					an avid NHL hockey fan and enjoys watching the Boston Bruins play on t.v
+					<br>
+					<br>
+					Prior to this project, Brian Gonzalez had zero experience with git, GitHub,
+					HTML, CSS, or JavaScript. Brian was also unfamiliar with Blockchain technology.
+					<br>
+					<br>
+					This work was completed as part of a Senior Research project at Eastern
+					Connecticut State University.
+					<br>
+					<br>
 				</p>
-				Brian Gonzalez began his education at a small community college in Manchester, CT. 
-				He obtained his associates degree in General Studies before transferring to a 
-				four year institution.  
-					<br>
-					<br>
-				Brian Gonzalez is currently attending Eastern Connecticut State University. 
-				He is a double major studying towards a B.S in Computer Science and a B.S in
-				Mathematics.
-					<br>
-					<br>
-				Hobbies include reading, creative writing, swimming, and baseball. Brian is 
-				an avid NHL hockey fan and enjoys watching the Boston Bruins play on t.v 
-					<br> 
-					<br>
-				Prior to this project, Brian Gonzalez had zero experience with git, GitHub, 
-				HTML, CSS, or JavaScript. Brian was also unfamiliar with Blockchain technology. 
-					<br>
-					<br>
-				This work was completed as part of a Senior Research project at Eastern 
-				Connecticut State University. 				
-				<p>
-					<br>
-					<br>
-				<img src="../imgs/schoolbanner4.png" width="600" height="200">	
-					<a href="#top">
-					<br>
-					<br>
-						<span><i class="icon-arrow-up"></i>&nbsp;Go to Top</span>
-					</a>
-					
-				
-					<script>
-						function minerName(){
-						name = window.prompt("Welcome to the Bitcoin mining club aka The Consensus Crew (totally just made that up). Err.. Um... Don't take offense, this is totally embarassing but, what was your name again?");			   
-						alert("Ahhh, miner " +	name  + ". Has a cool ring to it. You look a bit weak. They sure don't make em like they used to. Good thing we rely on electricity and computing power to mine our blocks! Lets get started " + name);
-						document.getElementById("minerGoodbye").innerHTML = name + ", your first objective is to go size up the competition! See who you\'re up against. Create your mining network to find out." ;
-						}
-					</script>
-					<script>			 
-						// Generating Random number for miner
-						function myMiners()	 {			  
-						  document.getElementById("miners").innerHTML = Math.floor((Math.random() * 100) + 20); 
-						  document.getElementById("miningMessage").innerHTML = "Congratulations, " + name + " you did it! Looks like you\'re competing against other miners. Buckle up, you got this " + name + "!!! <br/> <br/> <br/> Quick! It's a race to add the next block! Pick out your transactions and lets get rolling!"							   
-						}		   
-					</script>
-					<script>			 
-						// Generating Random number for miner
-						function myTransactions()  {			
-						document.getElementById("transactions").innerHTML = Math.floor((Math.random() * 150) + 50); 
+				<img src="../imgs/schoolbanner4.png" width="600" height="200">
+				<br>
+				<a href="#top" class="icon-arrow-up">Go to Top</a>
+				<br>
+				<script>
+					function minerName() {
+						name = window.prompt("Welcome to the Bitcoin mining club aka The Consensus Crew (totally just made that up). Err.. Um... Don't take offense, this is totally embarassing but, what was your name again?");
+						alert("Ahhh, miner " + name + ". Has a cool ring to it. You look a bit weak. They sure don't make em like they used to. Good thing we rely on electricity and computing power to mine our blocks! Lets get started " + name);
+						document.getElementById("minerGoodbye").innerHTML = name + ", your first objective is to go size up the competition! See who you\'re up against. Create your mining network to find out.";
+					}
+				</script>
+				<script>
+					// Generating Random number for miner
+					function myMiners() {
+						document.getElementById("miners").innerHTML = Math.floor((Math.random() * 100) + 20);
+						document.getElementById("miningMessage").innerHTML = "Congratulations, " + name + " you did it! Looks like you\'re competing against other miners. Buckle up, you got this " + name + "!!! <br/> <br/> <br/> Quick! It's a race to add the next block! Pick out your transactions and lets get rolling!"
+					}
+				</script>
+				<script>
+					// Generating Random number for miner
+					function myTransactions() {
+						document.getElementById("transactions").innerHTML = Math.floor((Math.random() * 150) + 50);
 						document.getElementById("transactionsMessage").innerHTML = "Great job " + name + "! We've got our transactions and have verified their authenticity. And you managed to stay well under bitcoin's 1mb data limit, great job! Your a natural. <br/> <br/> <br/> Now let's go grab the networks last blocks hash! We're going to need it. Remember, together with the previous blocks hash,  our transactions, and the nonce, we'll have what it takes to complete this block. . <br/> <br/> <br/> Did I mention we are kind of in a rush? Let's go!!"
-						}
-					</script>
-					<script>
-						function blockHeader() {
-						 document.getElementById("blockheadersMessage").innerHTML = "Sweeeet! " + name + ", you\'re on a roll. Look at that gorgeous hunk of hexadecimal. To think that this simple block id holds the 'history' of	 bitcoin is just amazing. <br/> <br/> <br/> I was wrong about you" + name + " you\'re doing a remarkable job. <br/> <br/> <br/> Great, so we have our previous block's hash and our transactions. Now we will hash them all together along with the nonce until we get an output value that is under the 'target' value."
-						 document.getElementById("blockheaders").innerHTML = "00000000000000000000000da86E8fB80D47Fb19443caaDA7c5FDF763E84A1c3190"
-						
-						
-						  /* {
-						 var result			  = '';
-						 var characters		  = 'ABCDEFabcdef0123456789';		  
-						 var j = 100;
-						 document.getElementById("blockheadersMessage").innerHTML = "Sweeeet! " + name + " Your on a roll. Look at that gorgeous hunk of hexadecimals. To think that this header holds every single transaction and block every created on bitcoin is just amazing.	 "
-						
-						 for ( var i = 0; i < 64; i++ ) {
-							document.getElementById("blockheaders").innerHTML += characters.charAt(Math.floor(Math.random() * characters.length));
-								  }			
-							return document.getElementById("blockheaders").innerHTML + document.getElementById("blockheadersMessage").innerHTML;  
-										   }
-						//document.write(blockHeader());
-										}  */  
-									 }
-					</script> 
-					
-					<script>						
-						var clicks = 0;
-					   function myFunction() {
-						   clicks += 1;
-						   document.getElementById("clicks").innerHTML = clicks;					   
-						   if(clicks == 4)	{
+					}
+				</script>
+				<script>
+					function blockHeader() {
+						document.getElementById("blockheadersMessage").innerHTML = "Sweeeet! " + name + ", you\'re on a roll. Look at that gorgeous hunk of hexadecimal. To think that this simple block id holds the 'history' of	 bitcoin is just amazing. <br/> <br/> <br/> I was wrong about you, " + name + ", you\'re doing a remarkable job. <br/> <br/> <br/> Great, so we have our previous block's hash and our transactions. Now we will hash them all together along with the nonce until we get an output value that is under the 'target' value."
+						document.getElementById("blockheaders").innerHTML = "00000000000000000000000da86E8fB80D47Fb19443caaDA7c5FDF763E84A1c3190"
+						/* {
+							var result			  = '';
+							var characters		  = 'ABCDEFabcdef0123456789';
+							var j = 100;
+							document.getElementById("blockheadersMessage").innerHTML = "Sweeeet! " + name + " Your on a roll. Look at that gorgeous hunk of hexadecimals. To think that this header holds every single transaction and block every created on bitcoin is just amazing.	 "
+							for ( var i = 0; i < 64; i++ ) {
+								document.getElementById("blockheaders").innerHTML += characters.charAt(Math.floor(Math.random() * characters.length));
+									}
+								return document.getElementById("blockheaders").innerHTML + document.getElementById("blockheadersMessage").innerHTML;
+											}
+							//document.write(blockHeader());
+											}  */
+					}
+				</script>
+				<script>
+					var clicks = 0;
+					function myFunction() {
+						clicks += 1;
+						document.getElementById("clicks").innerHTML = clicks;
+						if (clicks == 4) {
 							document.getElementById("finalNonce").innerHTML = "Oh no! We were so close! It appears one of Bitcoin's biggest mining groups, <br/> \"Poolin\" beat us to the nonce. This is what they claim to be is the nonce: <br/> <br/> <br/> 37bBeA248FgaH1CfGha234da86E8fB80 <br/> <br/> <br/> Let\'s go ahead and verify that this works. Remember, obtaining the nonce is <br/> extremeley difficult. However, verifying is simple. Go ahead and <br/> plug in the nonce and hash it to see if we reach our target (18 leading zero\'s)"
-						   }
-					   }
-				   </script>
-						 
-						
-						
-					
-				</div>
+						}
+					}
+				</script>
 			</div>
-			<div class="footer">
-				<h2>ECSU SENIOR RESEARCH PROJECT</h2>
-			</div>
+		</div>
+		<div class="footer">
+			<h2>ECSU SENIOR RESEARCH PROJECT</h2>
+		</div>
 	</body>
 </html>
