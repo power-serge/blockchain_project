@@ -55,9 +55,7 @@ function fetchBlockByHeight(height) {
 	if (height == "" || isNaN(height)) {
 		alert("Please Enter a Valid Number");
 	} else {
-		var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-		var targetUrl = 'https://blockchain.info/block-height/' + height + '?format=json';
-		fetch(proxyUrl + targetUrl)
+		fetch(`https://blockchain.info/block-height/${height}`)
 		.then(blob => blob.json())
 		.then(data => data.blocks[0].hash)
 		.then(block_hash => {
